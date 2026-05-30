@@ -1,387 +1,583 @@
-<!-- products/ksb-agriculture.html -->
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>KSB Agriculture — Pump Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<style> 
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --green-900:#14532d;--green-800:#166534;--green-700:#15803d;
+    --green-600:#16a34a;--green-400:#4ade80;--green-200:#bbf7d0;
+    --green-100:#dcfce7;--green-50:#f0fdf4;
+    --amber:#f59e0b;--amber-light:#fef3c7;--amber-dark:#92400e;
+    --gray-900:#111827;--gray-800:#1f2937;--gray-600:#4b5563;
+    --gray-400:#9ca3af;--gray-200:#e5e7eb;--gray-100:#f3f4f6;--gray-50:#f9fafb;
+    --white:#ffffff;--shadow-sm:0 1px 3px rgba(0,0,0,0.08);
+    --shadow-md:0 4px 16px rgba(0,0,0,0.1);--radius-sm:8px;
+    --radius-md:12px;--radius-lg:16px;--radius-xl:20px;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--gray-900);overflow-x:hidden;font-size:15px;line-height:1.6}
+  h1,h2,h3,h4{font-family:'Syne',sans-serif;line-height:1.2}
+  a{text-decoration:none;color:inherit}
+  button{font-family:'DM Sans',sans-serif;cursor:pointer}
+  input,select,textarea{font-family:'DM Sans',sans-serif}
 
-    <title>KSB Agriculture Pumps</title>
+  /* HEADER */
+  .header{background:var(--green-800);position:sticky;top:0;z-index:200;box-shadow:0 2px 12px rgba(0,0,0,0.15)}
+  .header-top{max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:10px}
+  .logo-icon{width:38px;height:38px;background:var(--white);border-radius:10px;display:flex;align-items:center;justify-content:center}
+  .logo-icon i{color:var(--green-800);font-size:22px}
+  .logo-text{color:var(--white);font-family:'Syne',sans-serif;font-size:20px;font-weight:700;line-height:1}
+  .logo-sub{color:var(--green-200);font-size:11px;font-weight:400;margin-top:2px}
+  .header-search{flex:1;max-width:360px;display:none}
+  .header-search input{width:100%;padding:8px 14px;border-radius:var(--radius-sm);border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.12);color:var(--white);font-size:13px;outline:none}
+  .header-search input::placeholder{color:rgba(255,255,255,0.5)}
+  .header-search input:focus{border-color:var(--green-400);background:rgba(255,255,255,0.18)}
+  .header-actions{display:flex;align-items:center;gap:14px}
+  .icon-btn{background:none;border:none;color:var(--green-200);font-size:22px;padding:4px;border-radius:var(--radius-sm);transition:color .2s,background .2s;position:relative}
+  .icon-btn:hover{color:var(--white);background:rgba(255,255,255,0.1)}
+  .cart-badge{position:absolute;top:-4px;right:-4px;background:#ef4444;color:#fff;font-size:10px;min-width:16px;height:16px;border-radius:99px;display:none;align-items:center;justify-content:center;padding:0 3px;font-weight:600}
+  .btn-advice{background:var(--green-700);border:none;color:var(--white);padding:8px 18px;border-radius:var(--radius-sm);font-size:13px;font-weight:500;transition:background .2s}
+  .btn-advice:hover{background:var(--green-600)}
+  .header-nav{border-top:1px solid rgba(255,255,255,0.1)}
+  .header-nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;gap:0;overflow-x:auto}
+  .nav-link{padding:10px 18px;font-size:13px;color:var(--green-200);white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;cursor:pointer}
+  .nav-link:hover,.nav-link.active{color:var(--white);border-bottom-color:var(--green-400)}
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  /* PROMO */
+  .promo-bar{background:var(--amber-light);border-bottom:1px solid #fcd34d;padding:9px 24px;text-align:center;font-size:13px;font-weight:500;color:var(--amber-dark)}
+
+  /* HERO */
+  .hero{background:linear-gradient(135deg,var(--green-900) 0%,var(--green-800) 55%,var(--green-700) 100%);padding:60px 24px}
+  .hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:5px 14px;border-radius:99px;margin-bottom:20px}
+  .hero-badge i{color:var(--green-400);font-size:14px}
+  .hero-badge span{color:var(--green-200);font-size:12px;font-weight:500}
+  .hero h1{color:var(--white);font-size:clamp(28px,4vw,48px);font-weight:700;margin-bottom:16px}
+  .hero h1 span{color:var(--green-400)}
+  .hero p{color:var(--green-200);font-size:15px;line-height:1.7;margin-bottom:28px;max-width:480px}
+  .hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+  .btn-white{background:var(--white);color:var(--green-800);border:none;padding:12px 28px;border-radius:var(--radius-md);font-size:14px;font-weight:600;transition:all .2s;font-family:'Syne',sans-serif}
+  .btn-white:hover{background:var(--green-100);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;border:1.5px solid var(--green-400);color:var(--green-400);padding:12px 24px;border-radius:var(--radius-md);font-size:14px;font-weight:500;transition:all .2s}
+  .btn-ghost:hover{background:rgba(74,222,128,0.1)}
+  .hero-stats{display:flex;gap:28px;flex-wrap:wrap}
+  .stat-item{text-align:center}
+  .stat-item .num{color:var(--white);font-family:'Syne',sans-serif;font-size:24px;font-weight:700}
+  .stat-item .label{color:var(--green-200);font-size:11px;margin-top:2px}
+  .stat-div{width:1px;background:rgba(255,255,255,0.15)}
+  .hero-cards{display:flex;flex-direction:column;gap:14px}
+  .hero-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-lg);padding:18px 20px;display:flex;align-items:center;gap:16px;transition:background .2s}
+  .hero-card:hover{background:rgba(255,255,255,0.11)}
+  .hero-card-icon{width:46px;height:46px;background:var(--green-900);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .hero-card-icon i{color:var(--green-400);font-size:22px}
+  .hero-card-title{color:var(--white);font-weight:500;font-size:14px}
+  .hero-card-sub{color:var(--green-200);font-size:12px;margin-top:2px}
+
+  /* PRODUCTS */
+  .products-section{max-width:1280px;margin:0 auto;padding:56px 24px}
+  .section-header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+  .section-title{font-size:28px;font-weight:700;color:var(--gray-900)}
+  .section-sub{color:var(--gray-400);font-size:14px;margin-top:4px}
+  .sort-wrap{display:flex;align-items:center;gap:10px}
+  .sort-wrap label{font-size:13px;color:var(--gray-500)}
+  .sort-wrap select{padding:7px 12px;border-radius:var(--radius-sm);border:1px solid var(--gray-200);background:var(--white);font-size:13px;color:var(--gray-900);outline:none;cursor:pointer}
+  .sort-wrap select:focus{border-color:var(--green-600)}
+  .filter-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+  .chip{display:inline-block;padding:6px 16px;border-radius:99px;font-size:13px;cursor:pointer;border:1px solid var(--gray-200);background:var(--white);color:var(--gray-600);transition:all .2s;white-space:nowrap;font-weight:500}
+  .chip:hover{border-color:var(--green-600);color:var(--green-700)}
+  .chip.active{background:var(--green-800);color:var(--white);border-color:var(--green-800)}
+  .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px}
+  .product-card{background:var(--white);border-radius:var(--radius-xl);border:1px solid var(--gray-200);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s,border-color .2s}
+  .product-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--green-200)}
+  .card-img-wrap{background:var(--gray-50);padding:28px 24px;position:relative;display:flex;align-items:center;justify-content:center;min-height:170px}
+  .card-img-wrap .icon-circle{width:88px;height:88px;background:var(--green-50);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid var(--green-100)}
+  .card-img-wrap .icon-circle i{color:var(--green-700);font-size:40px}
+  .card-img{width:100%;height:100%;object-fit:contain;padding:8px;transition:transform .3s}
+  .product-card:hover .card-img{transform:scale(1.05)}
+  .card-badge{position:absolute;top:12px;left:12px;font-size:11px;padding:3px 10px;border-radius:99px;font-weight:600}
+  .badge-green{background:var(--green-100);color:var(--green-800)}
+  .badge-amber{background:var(--amber-light);color:var(--amber-dark)}
+  .badge-blue{background:#dbeafe;color:#1e40af}
+  .card-body{padding:18px;display:flex;flex-direction:column;flex:1}
+  .card-category{font-size:11px;color:var(--gray-400);text-transform:uppercase;letter-spacing:.6px;margin-bottom:5px;font-weight:500}
+  .card-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:600;margin-bottom:5px;line-height:1.3}
+  .card-desc{font-size:12px;color:var(--gray-400);line-height:1.5;margin-bottom:10px;flex:1}
+  .card-stars{display:flex;align-items:center;gap:5px;margin-bottom:12px}
+  .stars-text{color:var(--amber);font-size:12px}
+  .reviews-count{font-size:11px;color:var(--gray-400)}
+  .card-price{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--green-800);margin-bottom:14px}
+  .card-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .btn-primary{background:var(--green-800);color:var(--white);border:none;padding:9px 0;border-radius:var(--radius-sm);font-size:13px;font-weight:500;transition:all .2s;width:100%}
+  .btn-primary:hover{background:var(--green-900)}
+  .btn-outline{background:transparent;color:var(--green-700);border:1.5px solid var(--green-700);padding:9px 0;border-radius:var(--radius-sm);font-size:13px;font-weight:500;transition:all .2s;width:100%}
+  .btn-outline:hover{background:var(--green-50)}
+  .no-results{text-align:center;padding:56px;color:var(--gray-400);display:none}
+  .no-results i{font-size:44px;display:block;margin-bottom:12px}
+
+  /* FEATURES */
+  .features-section{background:var(--white);border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200);padding:56px 24px}
+  .features-inner{max-width:1280px;margin:0 auto}
+  .features-header{text-align:center;margin-bottom:40px}
+  .features-header h2{font-size:28px;font-weight:700;margin-bottom:8px}
+  .features-header p{color:var(--gray-400);font-size:14px;max-width:400px;margin:0 auto}
+  .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+  .feature-card{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:24px 20px;transition:all .2s;text-align:center}
+  .feature-card:hover{border-color:var(--green-200);background:var(--green-50)}
+  .feature-icon-wrap{width:52px;height:52px;background:var(--white);border:1px solid var(--gray-200);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+  .feature-card:hover .feature-icon-wrap{background:var(--green-100);border-color:var(--green-200)}
+  .feature-icon-wrap i{color:var(--green-700);font-size:24px}
+  .feature-card h3{font-family:'Syne',sans-serif;font-size:15px;font-weight:600;margin-bottom:6px}
+  .feature-card p{font-size:13px;color:var(--gray-500);line-height:1.5}
+
+  /* CONTACT */
+  .contact-section{background:var(--green-900);padding:56px 24px}
+  .contact-inner{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .contact-section h2{font-family:'Syne',sans-serif;color:var(--white);font-size:28px;font-weight:700;margin-bottom:10px}
+  .contact-section p{color:var(--green-200);font-size:14px;line-height:1.7;margin-bottom:24px}
+  .contact-links{display:flex;flex-direction:column;gap:14px}
+  .contact-link{display:flex;align-items:center;gap:10px;color:var(--green-400);font-size:14px}
+  .contact-link i{font-size:18px}
+  .contact-form{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-xl);padding:28px}
+  .form-title{color:var(--white);font-weight:600;font-family:'Syne',sans-serif;font-size:16px;margin-bottom:18px}
+  .form-group{margin-bottom:12px}
+  .form-group input,.form-group select{width:100%;padding:10px 14px;border-radius:var(--radius-sm);border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.08);color:var(--white);font-size:13px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+  .form-group input::placeholder{color:rgba(255,255,255,0.4)}
+  .form-group input:focus,.form-group select:focus{border-color:var(--green-400);background:rgba(255,255,255,0.12)}
+  .form-group select option{background:var(--green-900);color:var(--white)}
+  .btn-submit{width:100%;background:var(--green-600);color:var(--white);border:none;padding:12px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;font-family:'Syne',sans-serif;cursor:pointer;transition:all .2s;margin-top:4px}
+  .btn-submit:hover{background:var(--green-700)}
+
+  /* FOOTER */
+  .footer{background:var(--green-900);border-top:1px solid rgba(255,255,255,0.08);padding:20px 24px;text-align:center}
+  .footer p{color:rgba(255,255,255,0.4);font-size:12px}
+
+  /* CART DRAWER */
+  .drawer-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0.5)}
+  .drawer{position:absolute;right:0;top:0;bottom:0;width:min(380px,100%);background:var(--white);display:flex;flex-direction:column;box-shadow:-4px 0 24px rgba(0,0,0,0.1)}
+  .drawer-header{padding:18px 20px;border-bottom:1px solid var(--gray-200);display:flex;align-items:center;justify-content:space-between}
+  .drawer-header span{font-family:'Syne',sans-serif;font-weight:700;font-size:17px}
+  .close-btn{background:none;border:none;font-size:22px;color:var(--gray-400);cursor:pointer;padding:2px;line-height:1}
+  .close-btn:hover{color:var(--gray-900)}
+  .drawer-body{flex:1;overflow-y:auto;padding:16px 20px}
+  .drawer-footer{padding:16px 20px;border-top:1px solid var(--gray-200)}
+  .cart-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--gray-100)}
+  .cart-item-icon{width:50px;height:50px;background:var(--gray-50);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--gray-200)}
+  .cart-item-icon i{color:var(--green-700);font-size:24px}
+  .cart-item-info{flex:1;min-width:0}
+  .cart-item-name{font-weight:500;font-size:13px;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .cart-item-price{font-size:12px;color:var(--gray-400)}
+  .qty-controls{display:flex;align-items:center;gap:10px;margin-top:8px}
+  .qty-btn{width:26px;height:26px;border-radius:6px;border:1px solid var(--gray-200);background:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;line-height:1;transition:all .2s}
+  .qty-btn:hover{background:var(--gray-100)}
+  .qty-num{font-size:13px;font-weight:500;min-width:20px;text-align:center}
+  .remove-btn{margin-left:auto;background:none;border:none;cursor:pointer;color:var(--gray-400);font-size:16px}
+  .remove-btn:hover{color:#ef4444}
+  .cart-item-total{font-weight:600;font-size:14px;flex-shrink:0}
+  .total-row{display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px}
+  .total-row.grand{font-weight:700;font-size:16px;font-family:'Syne',sans-serif;color:var(--green-800)}
+  .free-delivery-note{background:var(--green-50);border:1px solid var(--green-200);border-radius:var(--radius-sm);padding:8px 12px;font-size:12px;color:var(--green-800);text-align:center;margin:10px 0}
+  .empty-cart{text-align:center;padding:48px 20px;color:var(--gray-400)}
+  .empty-cart i{font-size:48px;display:block;margin-bottom:12px}
+
+  /* TOAST */
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--green-800);color:var(--white);padding:10px 20px;border-radius:var(--radius-sm);font-size:13px;font-weight:500;z-index:1000;transition:transform .3s;pointer-events:none;white-space:nowrap}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+
+  /* WHATSAPP */
+  .wa-btn{position:fixed;bottom:24px;right:24px;width:52px;height:52px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,0.4);z-index:100;text-decoration:none;transition:transform .2s}
+  .wa-btn:hover{transform:scale(1.08)}
+  .wa-btn i{color:var(--white);font-size:26px}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .hero-inner{grid-template-columns:1fr}
+    .hero-cards{display:none}
+    .contact-inner{grid-template-columns:1fr}
+  }
+  @media(max-width:600px){
+    .header-top{flex-wrap:nowrap;padding:12px 16px}
+    .btn-advice{display:none}
+    .hero{padding:40px 16px}
+    .hero h1{font-size:28px}
+    .products-section,.features-section,.contact-section{padding:40px 16px}
+    .section-title{font-size:22px}
+    .hero-stats{gap:16px}
+    .stat-div{display:none}
+  }
+</style>
 </head>
+<body>
 
-<body class="bg-gray-100 text-gray-800 overflow-x-hidden">
+<!-- HEADER -->
+<header class="header">
+  <div class="header-top">
+    <div class="logo">
+      <div class="logo-icon"><i class="ti ti-droplet"></i></div>
+      <div>
+        <div class="logo-text">KSB Agriculture</div>
+        <div class="logo-sub">Pump Solutions</div>
+      </div>
+    </div>
+    <div class="header-search" id="search-wrap">
+      <input type="text" placeholder="Search pumps..." id="search-input" oninput="filterProducts()"/>
+    </div>
+    <div class="header-actions">
+      <button class="icon-btn" onclick="toggleSearch()" title="Search" aria-label="Toggle search"><i class="ti ti-search"></i></button>
+      <button class="icon-btn" onclick="showCart()" title="Cart" aria-label="View cart">
+        <i class="ti ti-shopping-cart"></i>
+        <span class="cart-badge" id="cart-count">0</span>
+      </button>
+      <button class="btn-advice" onclick="window.open('tel:+919876543210')">Get advice</button>
+    </div>
+  </div>
+  <nav class="header-nav">
+    <div class="header-nav-inner">
+      <span class="nav-link" onclick="scrollToId('hero')">Home</span>
+      <span class="nav-link" onclick="scrollToId('products-sec')">Products</span>
+      <span class="nav-link" onclick="scrollToId('features-sec')">Features</span>
+      <span class="nav-link" onclick="scrollToId('contact-sec')">Contact</span>
+    </div>
+  </nav>
+</header>
 
-    <!-- HEADER -->
-    <header class="bg-green-700 text-white shadow-lg sticky top-0 z-50">
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
-
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-
-                <!-- Logo / Title -->
-                <div class="text-center md:text-left">
-                    <h1 class="text-2xl sm:text-3xl font-bold">
-                        KSB Agriculture Pumps
-                    </h1>
-                </div>
-
-                <!-- Navigation -->
-                <nav class="flex flex-wrap justify-center gap-4 text-sm sm:text-base">
-
-                    <a href="../index.html"
-                        class="hover:text-yellow-300 transition duration-300">
-                        Home
-                    </a>
-
-                    <a href="#products"
-                        class="hover:text-yellow-300 transition duration-300">
-                        Products
-                    </a>
-
-                    <a href="#features"
-                        class="hover:text-yellow-300 transition duration-300">
-                        Features
-                    </a>
-
-                    <a href="#contact"
-                        class="hover:text-yellow-300 transition duration-300">
-                        Contact
-                    </a>
-
-                </nav>
-
-            </div>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>High Performance<br><span>Agriculture Pumps</span></h1>
+      <p>Reliable KSB water pumps for irrigation, borewell, farming, and agricultural water management. Trusted by 50,000+ farmers across India.</p>
+      <div class="hero-btns">
+        <button class="btn-white" onclick="scrollToId('products-sec')">Explore products</button>
+        <button class="btn-ghost" onclick="window.open('tel:+919876543210')">Call us now</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><div class="num">50K+</div><div class="label">Farmers served</div></div>
+        <div class="stat-div"></div>
+        <div class="stat-item"><div class="num">2yr</div><div class="label">Warranty</div></div>
+        <div class="stat-div"></div>
+        <div class="stat-item"><div class="num">500+</div><div class="label">Service centres</div></div>
+        <div class="stat-div"></div>
+        <div class="stat-item"><div class="num">4.8★</div><div class="label">Avg rating</div></div>
+      </div>
+    </div>
+    <div class="hero-cards">
+      <div class="hero-card">
+        <div class="hero-card-icon"><i class="ti ti-bolt"></i></div>
+        <div>
+          <div class="hero-card-title">Energy efficient motors</div>
+          <div class="hero-card-sub">Up to 40% power saving vs standard pumps</div>
         </div>
-    </header>
-
-    <!-- HERO SECTION -->
-    <section class="bg-gradient-to-r from-green-700 to-green-500 text-white">
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-
-                <!-- Text -->
-                <div class="text-center lg:text-left">
-
-                    <h2 class="text-3xl sm:text-5xl font-bold leading-tight mb-5">
-                        High Performance Agriculture Pumps
-                    </h2>
-
-                    <p class="text-sm sm:text-lg text-green-100 mb-6">
-                        Reliable KSB water pumps for irrigation, borewell,
-                        farming, and agricultural water management systems.
-                    </p>
-
-                    <button
-                        class="bg-white text-green-700 font-semibold px-6 py-3 rounded-xl hover:bg-yellow-300 transition duration-300">
-                        Explore Products
-                    </button>
-
-                </div>
-
-                <!-- Hero Image -->
-                <div class="flex justify-center">
-
-                    <img src="../assets/pump1.jpg"
-                        alt="KSB Agriculture Pump"
-                        class="rounded-2xl shadow-2xl w-full max-w-md object-cover">
-
-                </div>
-
-            </div>
-
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon"><i class="ti ti-shield-check"></i></div>
+        <div>
+          <div class="hero-card-title">ISI certified &amp; BIS approved</div>
+          <div class="hero-card-sub">All pumps meet Indian quality standards</div>
         </div>
-    </section>
-
-    <!-- PRODUCTS SECTION -->
-    <section id="products" class="py-14">
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-
-            <div class="text-center mb-12">
-
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
-                    Agriculture Pump Products
-                </h2>
-
-                <p class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
-                    Explore our premium range of durable and energy-efficient
-                    agriculture pumps designed for modern farming needs.
-                </p>
-
-            </div>
-
-            <!-- Product Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- CARD 1 -->
-                <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
-
-                    <img src="../assets/pump1.jpg"
-                        alt="Submersible Pump"
-                        class="w-full h-56 object-cover">
-
-                    <div class="p-6">
-
-                        <h3 class="text-2xl font-semibold mb-3">
-                            Submersible Pump
-                        </h3>
-
-                        <p class="text-gray-600 mb-5 text-sm sm:text-base">
-                            Ideal for borewell applications with powerful water
-                            lifting performance and low maintenance.
-                        </p>
-
-                        <button
-                            class="w-full bg-green-700 text-white py-3 rounded-xl hover:bg-green-800 transition duration-300">
-                            View Details
-                        </button>
-
-                    </div>
-                </div>
-
-                <!-- CARD 2 -->
-                <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
-
-                    <img src="../assets/pump2.jpg"
-                        alt="Centrifugal Pump"
-                        class="w-full h-56 object-cover">
-
-                    <div class="p-6">
-
-                        <h3 class="text-2xl font-semibold mb-3">
-                            Centrifugal Pump
-                        </h3>
-
-                        <p class="text-gray-600 mb-5 text-sm sm:text-base">
-                            Efficient water flow solution for irrigation and
-                            agricultural water distribution systems.
-                        </p>
-
-                        <button
-                            class="w-full bg-green-700 text-white py-3 rounded-xl hover:bg-green-800 transition duration-300">
-                            View Details
-                        </button>
-
-                    </div>
-                </div>
-
-                <!-- CARD 3 -->
-                <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
-
-                    <img src="../assets/pump3.jpg"
-                        alt="Openwell Pump"
-                        class="w-full h-56 object-cover">
-
-                    <div class="p-6">
-
-                        <h3 class="text-2xl font-semibold mb-3">
-                            Openwell Pump
-                        </h3>
-
-                        <p class="text-gray-600 mb-5 text-sm sm:text-base">
-                            Strong and compact pump suitable for continuous
-                            farming operations and openwell usage.
-                        </p>
-
-                        <button
-                            class="w-full bg-green-700 text-white py-3 rounded-xl hover:bg-green-800 transition duration-300">
-                            View Details
-                        </button>
-
-                    </div>
-                </div>
-
-                <!-- CARD 3 -->
-                <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
-
-                    <img src="../assets/pump3.jpg"
-                        alt="Openwell Pump"
-                        class="w-full h-56 object-cover">
-
-                    <div class="p-6">
-
-                        <h3 class="text-2xl font-semibold mb-3">
-                            Openwell Pump
-                        </h3>
-
-                        <p class="text-gray-600 mb-5 text-sm sm:text-base">
-                            Strong and compact pump suitable for continuous
-                            farming operations and openwell usage.
-                        </p>
-
-                        <button
-                            class="w-full bg-green-700 text-white py-3 rounded-xl hover:bg-green-800 transition duration-300">
-                            View Details
-                        </button>
-
-                    </div>
-                </div>
-
-                <!-- CARD 3 -->
-                <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
-
-                    <img src="../assets/pump3.jpg"
-                        alt="Openwell Pump"
-                        class="w-full h-56 object-cover">
-
-                    <div class="p-6">
-
-                        <h3 class="text-2xl font-semibold mb-3">
-                            Openwell Pump
-                        </h3>
-
-                        <p class="text-gray-600 mb-5 text-sm sm:text-base">
-                            Strong and compact pump suitable for continuous
-                            farming operations and openwell usage.
-                        </p>
-
-                        <button
-                            class="w-full bg-green-700 text-white py-3 rounded-xl hover:bg-green-800 transition duration-300">
-                            View Details
-                        </button>
-
-                    </div>
-                </div>
-
-                <!-- CARD 3 -->
-                <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
-
-                    <img src="../assets/pump3.jpg"
-                        alt="Openwell Pump"
-                        class="w-full h-56 object-cover">
-
-                    <div class="p-6">
-
-                        <h3 class="text-2xl font-semibold mb-3">
-                            Openwell Pump
-                        </h3>
-
-                        <p class="text-gray-600 mb-5 text-sm sm:text-base">
-                            Strong and compact pump suitable for continuous
-                            farming operations and openwell usage.
-                        </p>
-
-                        <button
-                            class="w-full bg-green-700 text-white py-3 rounded-xl hover:bg-green-800 transition duration-300">
-                            View Details
-                        </button>
-
-                    </div>
-                </div>
-
-            </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon"><i class="ti ti-truck-delivery"></i></div>
+        <div>
+          <div class="hero-card-title">Free installation support</div>
+          <div class="hero-card-sub">Pan India delivery in 3–5 working days</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- FEATURES -->
-    <section id="features" class="bg-white py-14">
+<!-- PRODUCTS -->
+<section id="products-sec" class="products-section">
+  <div class="section-header">
+    <div>
+      <h2 class="section-title">Featured products</h2>
+      <p class="section-sub">High-performance agriculture pumps for every need</p>
+    </div>
+    <div class="sort-wrap">
+      <label for="sort-sel">Sort:</label>
+      <select id="sort-sel" onchange="sortProducts()">
+        <option value="default">Featured</option>
+        <option value="price-asc">Price: Low to high</option>
+        <option value="price-desc">Price: High to low</option>
+        <option value="rating">Top rated</option>
+      </select>
+    </div>
+  </div>
+  <div class="filter-chips">
+    <button class="chip active" onclick="filterCategory(this,'all')">All pumps</button>
+    <button class="chip" onclick="filterCategory(this,'borewell')">Borewell</button>
+    <button class="chip" onclick="filterCategory(this,'submersible')">Submersible</button>
+    <button class="chip" onclick="filterCategory(this,'openwell')">Openwell</button>
+    <button class="chip" onclick="filterCategory(this,'monoblock')">Monoblock</button>
+    <button class="chip" onclick="filterCategory(this,'solar')">Solar</button>
+  </div>
+  <div class="product-grid" id="product-grid"></div>
+  <div class="no-results" id="no-results">
+    <i class="ti ti-search-off"></i>
+    No products match your search.
+  </div>
+</section>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+<!-- FEATURES -->
+<section id="features-sec" class="features-section">
+  <div class="features-inner">
+    <div class="features-header">
+      <h2>Why choose KSB?</h2>
+      <p>Engineered for Indian agriculture with decades of field-proven performance</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><i class="ti ti-bolt"></i></div>
+        <h3>Energy saving</h3>
+        <p>IE3 premium motors with up to 40% lower energy cost vs standard pumps</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><i class="ti ti-tool"></i></div>
+        <h3>Easy maintenance</h3>
+        <p>Modular design for quick field service, even in remote rural areas</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><i class="ti ti-droplet"></i></div>
+        <h3>High flow rate</h3>
+        <p>Handles heavy-duty irrigation demands for large farm operations</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><i class="ti ti-shield-check"></i></div>
+        <h3>2-year warranty</h3>
+        <p>Full coverage with 500+ authorised service centres across India</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><i class="ti ti-sun"></i></div>
+        <h3>Solar compatible</h3>
+        <p>Solar-powered models eligible under the PM-KUSUM scheme</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><i class="ti ti-certificate"></i></div>
+        <h3>ISI certified</h3>
+        <p>All pumps BIS approved and meet Indian Standards specifications</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <div class="text-center mb-12">
+<!-- CONTACT -->
+<section id="contact-sec" class="contact-section">
+  <div class="contact-inner">
+    <div>
+      <h2>Need assistance?</h2>
+      <p>Contact us for pricing, dealer support, installation help, and subsidy scheme information.</p>
+      <div class="contact-links">
+        <a href="tel:+919876543210" class="contact-link"><i class="ti ti-phone"></i> +91 98765 43210</a>
+        <a href="mailto:support@ksbagriculture.in" class="contact-link"><i class="ti ti-mail"></i> support@ksbagriculture.in</a>
+        <a href="https://wa.me/919876543210" class="contact-link" target="_blank"><i class="ti ti-brand-whatsapp"></i> WhatsApp support</a>
+        <div class="contact-link" style="color:var(--green-200)"><i class="ti ti-map-pin"></i> Pan India service network</div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-title">Quick enquiry</div>
+      <div class="form-group"><input type="text" placeholder="Your name"/></div>
+      <div class="form-group"><input type="tel" placeholder="Phone number"/></div>
+      <div class="form-group">
+        <select>
+          <option value="">Pump type needed</option>
+          <option>Borewell pump</option>
+          <option>Submersible pump</option>
+          <option>Openwell pump</option>
+          <option>Monoblock pump</option>
+          <option>Solar pump</option>
+        </select>
+      </div>
+      <div class="form-group"><input type="text" placeholder="District / State"/></div>
+      <button class="btn-submit" onclick="alert('Thank you! Our team will call you within 24 hours.')">Submit enquiry</button>
+    </div>
+  </div>
+</section>
 
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
-                    Why Choose KSB?
-                </h2>
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2024 KSB Agriculture. All rights reserved. &nbsp;|&nbsp; ISI Certified &nbsp;·&nbsp; BIS Approved &nbsp;·&nbsp; PM-KUSUM Eligible</p>
+</footer>
 
-            </div>
+<!-- WHATSAPP -->
+<a href="https://wa.me/919876543210" class="wa-btn" target="_blank" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+  <i class="ti ti-brand-whatsapp"></i>
+</a>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
 
-                <!-- Feature -->
-                <div class="bg-gray-100 p-8 rounded-2xl shadow text-center">
+<!-- CART DRAWER -->
+<div class="drawer-overlay" id="cart-drawer" onclick="closeCart()">
+  <div class="drawer" onclick="event.stopPropagation()">
+    <div class="drawer-header">
+      <span>Your cart</span>
+      <button class="close-btn" onclick="closeCart()" aria-label="Close cart"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="drawer-body" id="cart-items"></div>
+    <div class="drawer-footer" id="cart-footer"></div>
+  </div>
+</div>
 
-                    <div class="text-5xl mb-4">⚡</div>
+<script>
+const products=[
+  {id:1,name:"KSB Borewell pump",category:"borewell",price:18999,rating:5,reviews:234,badge:"Best seller",badgeClass:"badge-green",img:"../assets/pump1.jpg",desc:"Deep borewell submersible, 3-phase, 2HP–15HP"},
+  {id:2,name:"KSB Submersible pump",category:"submersible",price:22499,rating:4,reviews:187,badge:"Popular",badgeClass:"badge-green",img:"../assets/pump2.jpg",desc:"High-head submersible, ideal for deep wells"},
+  {id:3,name:"Openwell pump",category:"openwell",price:20999,rating:5,reviews:312,badge:"Top rated",badgeClass:"badge-green",img:"../assets/pump3.jpg",desc:"Self-priming centrifugal for open wells"},
+  {id:4,name:"Monoblock pump",category:"monoblock",price:16499,rating:4,reviews:156,badge:"Value pick",badgeClass:"badge-amber",img:"../assets/pump4.jpg",desc:"Compact monoblock for surface irrigation"},
+  {id:5,name:"Solar submersible",category:"solar",price:34999,rating:5,reviews:98,badge:"New",badgeClass:"badge-blue",img:"../assets/pump1.jpg",desc:"PM-KUSUM eligible solar pump, 3HP"},
+  {id:6,name:"KSB Mini borewell",category:"borewell",price:12499,rating:4,reviews:201,badge:null,img:"../assets/pump2.jpg",desc:"Single-phase borewell for small farms"},
+  {id:7,name:"Heavy-duty openwell",category:"openwell",price:24999,rating:5,reviews:143,badge:null,img:"../assets/pump3.jpg",desc:"Large-capacity openwell for 10+ acre farms"},
+  {id:8,name:"Solar monoblock",category:"solar",price:28999,rating:4,reviews:77,badge:"New",badgeClass:"badge-blue",img:"../assets/pump4.jpg",desc:"Off-grid solar monoblock, 2HP"}
+];
 
-                    <h3 class="text-xl font-semibold mb-3">
-                        Energy Efficient
-                    </h3>
+let cart=[],currentFilter="all",currentSort="default",searchQ="";
 
-                    <p class="text-gray-600">
-                        Maximum output with reduced electricity consumption.
-                    </p>
+function star(r){return"★".repeat(r)+"☆".repeat(5-r)}
 
-                </div>
+function renderProducts(){
+  let list=[...products];
+  if(currentFilter!=="all") list=list.filter(p=>p.category===currentFilter);
+  if(searchQ) list=list.filter(p=>p.name.toLowerCase().includes(searchQ)||p.category.includes(searchQ)||p.desc.toLowerCase().includes(searchQ));
+  if(currentSort==="price-asc") list.sort((a,b)=>a.price-b.price);
+  else if(currentSort==="price-desc") list.sort((a,b)=>b.price-a.price);
+  else if(currentSort==="rating") list.sort((a,b)=>b.rating-a.rating||(b.reviews-a.reviews));
+  const g=document.getElementById("product-grid");
+  const nr=document.getElementById("no-results");
+  if(!list.length){g.innerHTML="";nr.style.display="block";return}
+  nr.style.display="none";
+  g.innerHTML=list.map(p=>`
+  <article class="product-card">
+    <div class="card-img-wrap">
+      ${p.badge?`<span class="card-badge ${p.badgeClass}">${p.badge}</span>`:''}
+      <img src="${p.img}" alt="${p.name}" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy"/>
+      <div class="icon-circle" style="display:none"><i class="ti ti-droplet"></i></div>
+    </div>
+    <div class="card-body">
+      <div class="card-category">${p.category}</div>
+      <div class="card-name">${p.name}</div>
+      <div class="card-desc">${p.desc}</div>
+      <div class="card-stars">
+        <span class="stars-text">${star(p.rating)}</span>
+        <span class="reviews-count">(${p.reviews})</span>
+      </div>
+      <div class="card-price">₹${p.price.toLocaleString('en-IN')}</div>
+      <div class="card-btns">
+        <button class="btn-primary" onclick="addToCart(${p.id})">Add to cart</button>
+        <button class="btn-outline" onclick="viewDetails(${p.id})">Details</button>
+      </div>
+    </div>
+  </article>`).join("");
+}
 
-                <!-- Feature -->
-                <div class="bg-gray-100 p-8 rounded-2xl shadow text-center">
+function addToCart(id){
+  const p=products.find(x=>x.id===id);
+  const ex=cart.find(x=>x.id===id);
+  if(ex) ex.qty++;
+  else cart.push({...p,qty:1});
+  updateBadge();
+  showToast(p.name+" added to cart");
+}
 
-                    <div class="text-5xl mb-4">🛠️</div>
+function updateBadge(){
+  const t=cart.reduce((s,x)=>s+x.qty,0);
+  const el=document.getElementById("cart-count");
+  el.textContent=t;
+  el.style.display=t?"flex":"none";
+}
 
-                    <h3 class="text-xl font-semibold mb-3">
-                        Durable Design
-                    </h3>
+function showToast(msg){
+  const t=document.getElementById("toast");
+  t.textContent=msg;
+  t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"),2500);
+}
 
-                    <p class="text-gray-600">
-                        Built using premium materials for long-lasting use.
-                    </p>
+function viewDetails(id){
+  const p=products.find(x=>x.id===id);
+  alert(`${p.name}\n\nCategory: ${p.category}\nPrice: ₹${p.price.toLocaleString('en-IN')}\n${p.desc}\n\nRating: ${p.rating}/5 (${p.reviews} reviews)\n\nFor full specifications, call: +91 98765 43210`);
+}
 
-                </div>
+function showCart(){
+  document.getElementById("cart-drawer").style.display="block";
+  renderCart();
+}
+function closeCart(){document.getElementById("cart-drawer").style.display="none"}
 
-                <!-- Feature -->
-                <div class="bg-gray-100 p-8 rounded-2xl shadow text-center">
+function renderCart(){
+  const ci=document.getElementById("cart-items");
+  const cf=document.getElementById("cart-footer");
+  if(!cart.length){
+    ci.innerHTML=`<div class="empty-cart"><i class="ti ti-shopping-cart"></i>Your cart is empty<br><span style="font-size:13px;color:var(--gray-400);display:block;margin-top:6px">Browse our products and add items</span></div>`;
+    cf.innerHTML="";return;
+  }
+  ci.innerHTML=cart.map(p=>`
+  <div class="cart-item">
+    <div class="cart-item-icon"><img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;padding:4px" onerror="this.style.display='none'"/></div>
+    <div class="cart-item-info">
+      <div class="cart-item-name">${p.name}</div>
+      <div class="cart-item-price">₹${p.price.toLocaleString('en-IN')} each</div>
+      <div class="qty-controls">
+        <button class="qty-btn" onclick="changeQty(${p.id},-1)">−</button>
+        <span class="qty-num">${p.qty}</span>
+        <button class="qty-btn" onclick="changeQty(${p.id},1)">+</button>
+        <button class="remove-btn" onclick="removeItem(${p.id})" title="Remove"><i class="ti ti-trash"></i></button>
+      </div>
+    </div>
+    <div class="cart-item-total">₹${(p.price*p.qty).toLocaleString('en-IN')}</div>
+  </div>`).join("");
+  const subtotal=cart.reduce((s,x)=>s+x.price*x.qty,0);
+  const ship=subtotal>=20000?0:499;
+  const total=subtotal+ship;
+  cf.innerHTML=`
+  <div class="total-row"><span style="color:var(--gray-500)">Subtotal</span><span>₹${subtotal.toLocaleString('en-IN')}</span></div>
+  <div class="total-row"><span style="color:var(--gray-500)">Delivery</span><span style="color:${ship===0?'var(--green-700)':'inherit'}">${ship===0?'Free ✓':'₹'+ship}</span></div>
+  <div class="total-row grand" style="padding-top:10px;border-top:1px solid var(--gray-200);margin-top:6px"><span>Total</span><span>₹${total.toLocaleString('en-IN')}</span></div>
+  ${ship>0?`<div class="free-delivery-note">Add ₹${(20000-subtotal).toLocaleString('en-IN')} more for free delivery</div>`:'<div class="free-delivery-note">✓ Free delivery applied!</div>'}
+  <button class="btn-primary" style="margin-top:12px;padding:12px;border-radius:var(--radius-md);font-size:14px;font-weight:600" onclick="checkout()">Proceed to checkout →</button>
+  <button class="btn-outline" style="margin-top:8px;padding:10px;border-radius:var(--radius-md);font-size:13px" onclick="closeCart()">Continue shopping</button>`;
+}
 
-                    <div class="text-5xl mb-4">💧</div>
+function changeQty(id,d){
+  const i=cart.findIndex(x=>x.id===id);
+  cart[i].qty+=d;
+  if(cart[i].qty<=0) cart.splice(i,1);
+  updateBadge();renderCart();
+}
+function removeItem(id){cart=cart.filter(x=>x.id!==id);updateBadge();renderCart();}
+function checkout(){
+  const items=cart.map(x=>x.qty+'x '+x.name).join(', ');
+  alert('Order summary:\n'+items+'\n\nTo place your order, call:\n+91 98765 43210\n\nOr WhatsApp: wa.me/919876543210');
+}
 
-                    <h3 class="text-xl font-semibold mb-3">
-                        High Water Flow
-                    </h3>
+function filterCategory(el,cat){
+  document.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));
+  el.classList.add("active");
+  currentFilter=cat;renderProducts();
+}
+function sortProducts(){currentSort=document.getElementById("sort-sel").value;renderProducts();}
+function filterProducts(){searchQ=document.getElementById("search-input").value.toLowerCase();renderProducts();}
 
-                    <p class="text-gray-600">
-                        Reliable water delivery for irrigation systems.
-                    </p>
+function toggleSearch(){
+  const w=document.getElementById("search-wrap");
+  const vis=w.style.display==="flex";
+  w.style.display=vis?"none":"flex";
+  if(!vis) w.querySelector("input").focus();
+}
 
-                </div>
+function scrollToId(id){
+  const el=document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:"smooth"});
+}
 
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="py-14 bg-green-700 text-white">
-
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-
-            <h2 class="text-3xl sm:text-4xl font-bold mb-4">
-                Need Assistance?
-            </h2>
-
-            <p class="mb-8 text-green-100">
-                Contact us for product details, pricing, and dealer support.
-            </p>
-
-            <button
-                class="bg-white text-green-700 font-semibold px-8 py-3 rounded-xl hover:bg-yellow-300 transition duration-300">
-                Contact Now
-            </button>
-
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-green-900 text-white py-6">
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center text-sm sm:text-base">
-
-            <p>
-                © 2026 KSB Agriculture Pumps. All Rights Reserved.
-            </p>
-
-        </div>
-    </footer>
-
+renderProducts();
+</script>
 </body>
-
 </html>

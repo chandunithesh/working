@@ -1,523 +1,613 @@
-<!-- products/ksb-domestic.html -->
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>KSB Domestic Pumps</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue-950:#0a1628;--blue-900:#0f2a50;--blue-800:#1e3a8a;
+  --blue-700:#1d4ed8;--blue-600:#2563eb;--blue-500:#3b82f6;
+  --blue-400:#60a5fa;--blue-300:#93c5fd;--blue-200:#bfdbfe;
+  --blue-100:#dbeafe;--blue-50:#eff6ff;
+  --accent:#f59e0b;--accent-light:#fef3c7;--accent-dark:#92400e;
+  --gray-900:#0f172a;--gray-800:#1e293b;--gray-700:#334155;
+  --gray-500:#64748b;--gray-400:#94a3b8;--gray-200:#e2e8f0;
+  --gray-100:#f1f5f9;--gray-50:#f8fafc;--white:#ffffff;
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.07);
+  --shadow-md:0 4px 20px rgba(0,0,0,0.09);
+  --shadow-lg:0 12px 40px rgba(0,0,0,0.12);
+  --r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:20px;--r-2xl:28px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--gray-50);color:var(--gray-900);overflow-x:hidden;line-height:1.6}
+h1,h2,h3{font-family:'Fraunces',serif;line-height:1.15}
+a{text-decoration:none;color:inherit}
+button{font-family:'Outfit',sans-serif;cursor:pointer}
+img{display:block}
 
-    <title>KSB Domestic Products</title>
+/* ===== HEADER ===== */
+.header{background:var(--blue-900);position:sticky;top:0;z-index:300;border-bottom:1px solid rgba(255,255,255,0.07)}
+.header-top{max-width:1300px;margin:0 auto;padding:13px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:40px;height:40px;background:linear-gradient(135deg,var(--blue-500),var(--blue-700));border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-mark i{color:#fff;font-size:22px}
+.logo-name{font-family:'Fraunces',serif;color:#fff;font-size:19px;font-weight:700;line-height:1}
+.logo-tagline{color:var(--blue-300);font-size:11px;font-weight:400;margin-top:2px;font-family:'Outfit',sans-serif}
+.search-wrap{flex:1;max-width:340px;display:none}
+.search-wrap input{width:100%;padding:8px 16px;border-radius:var(--r-sm);border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.1);color:#fff;font-size:13px;font-family:'Outfit',sans-serif;outline:none;transition:all .2s}
+.search-wrap input::placeholder{color:rgba(255,255,255,0.4)}
+.search-wrap input:focus{border-color:var(--blue-400);background:rgba(255,255,255,0.16)}
+.header-actions{display:flex;align-items:center;gap:12px}
+.icon-btn{background:none;border:none;color:var(--blue-300);font-size:22px;padding:5px;border-radius:var(--r-sm);cursor:pointer;position:relative;transition:all .2s}
+.icon-btn:hover{color:#fff;background:rgba(255,255,255,0.1)}
+.cart-dot{position:absolute;top:-3px;right:-3px;background:#ef4444;color:#fff;font-size:10px;min-width:16px;height:16px;border-radius:99px;display:none;align-items:center;justify-content:center;padding:0 3px;font-weight:700;font-family:'Outfit',sans-serif}
+.btn-cta-sm{background:var(--blue-600);color:#fff;border:none;padding:8px 18px;border-radius:var(--r-sm);font-size:13px;font-weight:600;transition:all .2s}
+.btn-cta-sm:hover{background:var(--blue-700)}
+.nav-bar{border-top:1px solid rgba(255,255,255,0.08)}
+.nav-inner{max-width:1300px;margin:0 auto;padding:0 28px;display:flex;overflow-x:auto;gap:0}
+.nav-link{padding:11px 18px;font-size:13px;font-weight:500;color:var(--blue-300);white-space:nowrap;border-bottom:2px solid transparent;cursor:pointer;transition:all .2s}
+.nav-link:hover,.nav-link.active{color:#fff;border-bottom-color:var(--blue-400)}
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+/* ===== PROMO ===== */
+.promo{background:linear-gradient(90deg,var(--blue-800),var(--blue-700));padding:10px 28px;text-align:center;font-size:13px;font-weight:500;color:var(--blue-100);display:flex;align-items:center;justify-content:center;gap:8px}
+.promo i{color:var(--accent);font-size:15px}
+.promo strong{color:#fff}
+
+/* ===== HERO ===== */
+.hero{background:linear-gradient(135deg,var(--blue-950) 0%,var(--blue-900) 45%,#1a3a6e 100%);padding:64px 28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:400px;height:400px;background:radial-gradient(circle,rgba(59,130,246,0.15) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-40px;width:300px;height:300px;background:radial-gradient(circle,rgba(96,165,250,0.08) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);padding:5px 14px;border-radius:99px;margin-bottom:20px}
+.hero-badge i{color:var(--accent);font-size:13px}
+.hero-badge span{color:var(--blue-200);font-size:12px;font-weight:500}
+.hero h1{font-size:clamp(26px,4vw,50px);color:#fff;font-weight:700;margin-bottom:16px}
+.hero h1 em{color:var(--blue-400);font-style:normal}
+.hero-desc{color:var(--blue-200);font-size:15px;line-height:1.75;margin-bottom:28px;max-width:460px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+.btn-hero-primary{background:var(--blue-600);color:#fff;border:none;padding:13px 28px;border-radius:var(--r-md);font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Outfit',sans-serif;letter-spacing:.2px}
+.btn-hero-primary:hover{background:var(--blue-700);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,0.4)}
+.btn-hero-ghost{background:transparent;color:var(--blue-300);border:1.5px solid rgba(255,255,255,0.25);padding:13px 24px;border-radius:var(--r-md);font-size:14px;font-weight:500;cursor:pointer;transition:all .2s;font-family:'Outfit',sans-serif}
+.btn-hero-ghost:hover{border-color:var(--blue-400);color:#fff;background:rgba(255,255,255,0.05)}
+.hero-stats{display:flex;gap:32px;flex-wrap:wrap}
+.hero-stat .val{font-family:'Fraunces',serif;color:#fff;font-size:26px;font-weight:700}
+.hero-stat .lbl{color:var(--blue-300);font-size:11px;font-weight:500;margin-top:2px}
+.hero-divider{width:1px;background:rgba(255,255,255,0.12)}
+.hero-visual{display:flex;flex-direction:column;gap:16px}
+.hero-img-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:var(--r-xl);overflow:hidden;padding:20px;display:flex;align-items:center;gap:16px;transition:all .2s;cursor:default}
+.hero-img-card:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2)}
+.hero-img-card img{width:72px;height:72px;object-fit:contain;border-radius:var(--r-md);background:rgba(255,255,255,0.08);padding:6px;flex-shrink:0}
+.hero-card-title{color:#fff;font-weight:600;font-size:14px}
+.hero-card-sub{color:var(--blue-300);font-size:12px;margin-top:3px;line-height:1.4}
+.hero-card-price{margin-left:auto;font-family:'Fraunces',serif;color:var(--blue-300);font-size:18px;font-weight:700;white-space:nowrap;flex-shrink:0}
+
+/* ===== TRUST BAR ===== */
+.trust-bar{background:var(--white);border-bottom:1px solid var(--gray-200);padding:16px 28px}
+.trust-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:8px;padding:8px 24px;border-right:1px solid var(--gray-200)}
+.trust-item:last-child{border-right:none}
+.trust-item i{color:var(--blue-600);font-size:18px}
+.trust-item span{font-size:13px;font-weight:500;color:var(--gray-700)}
+
+/* ===== PRODUCTS ===== */
+.products-section{max-width:1300px;margin:0 auto;padding:60px 28px}
+.sec-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.sec-title{font-size:30px;font-weight:700;color:var(--gray-900)}
+.sec-sub{color:var(--gray-500);font-size:14px;margin-top:4px}
+.sort-row{display:flex;align-items:center;gap:10px}
+.sort-row label{font-size:13px;color:var(--gray-500)}
+.sort-row select{padding:7px 12px;border-radius:var(--r-sm);border:1px solid var(--gray-200);background:var(--white);font-size:13px;color:var(--gray-900);outline:none;font-family:'Outfit',sans-serif;cursor:pointer}
+.sort-row select:focus{border-color:var(--blue-500)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.chip{padding:7px 18px;border-radius:99px;font-size:13px;font-weight:500;cursor:pointer;border:1px solid var(--gray-200);background:var(--white);color:var(--gray-600);transition:all .2s;white-space:nowrap}
+.chip:hover{border-color:var(--blue-500);color:var(--blue-600)}
+.chip.active{background:var(--blue-700);color:#fff;border-color:var(--blue-700)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px}
+.pcard{background:var(--white);border-radius:var(--r-2xl);border:1px solid var(--gray-200);overflow:hidden;display:flex;flex-direction:column;transition:all .25s;cursor:default}
+.pcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--blue-200)}
+.pcard-img{position:relative;background:var(--blue-50);height:200px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.pcard-img img{width:100%;height:100%;object-fit:contain;padding:16px;transition:transform .35s}
+.pcard:hover .pcard-img img{transform:scale(1.06)}
+.pcard-badge{position:absolute;top:12px;left:12px;font-size:11px;font-weight:600;padding:3px 10px;border-radius:99px}
+.b-blue{background:var(--blue-100);color:var(--blue-800)}
+.b-amber{background:var(--accent-light);color:var(--accent-dark)}
+.b-green{background:#dcfce7;color:#166534}
+.b-purple{background:#f3e8ff;color:#7e22ce}
+.pcard-wishlist{position:absolute;top:12px;right:12px;width:30px;height:30px;background:var(--white);border:1px solid var(--gray-200);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;border:none;box-shadow:var(--shadow-sm)}
+.pcard-wishlist:hover{background:var(--blue-50);color:var(--blue-600)}
+.pcard-wishlist i{font-size:15px;color:var(--gray-400);transition:color .2s}
+.pcard-wishlist.liked i{color:#ef4444}
+.pcard-body{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1}
+.pcard-cat{font-size:11px;color:var(--gray-400);text-transform:uppercase;letter-spacing:.7px;font-weight:600;margin-bottom:5px}
+.pcard-name{font-family:'Fraunces',serif;font-size:17px;font-weight:700;line-height:1.3;margin-bottom:6px}
+.pcard-desc{font-size:13px;color:var(--gray-500);line-height:1.5;flex:1;margin-bottom:10px}
+.pcard-stars{display:flex;align-items:center;gap:5px;margin-bottom:12px}
+.star-txt{color:var(--accent);font-size:12px}
+.rev-cnt{font-size:11px;color:var(--gray-400)}
+.pcard-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:14px}
+.pcard-price{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--blue-700)}
+.pcard-mrp{font-size:13px;color:var(--gray-400);text-decoration:line-through}
+.pcard-off{font-size:12px;font-weight:600;color:#16a34a}
+.pcard-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.btn-add{background:var(--blue-700);color:#fff;border:none;padding:10px 0;border-radius:var(--r-sm);font-size:13px;font-weight:600;transition:all .2s;font-family:'Outfit',sans-serif}
+.btn-add:hover{background:var(--blue-800)}
+.btn-det{background:transparent;color:var(--blue-700);border:1.5px solid var(--blue-300);padding:10px 0;border-radius:var(--r-sm);font-size:13px;font-weight:500;transition:all .2s;font-family:'Outfit',sans-serif}
+.btn-det:hover{background:var(--blue-50)}
+.no-res{text-align:center;padding:60px;color:var(--gray-400);display:none}
+.no-res i{font-size:48px;display:block;margin-bottom:12px}
+
+/* ===== FEATURES ===== */
+.features-section{background:var(--white);border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200);padding:60px 28px}
+.feat-inner{max-width:1300px;margin:0 auto}
+.feat-hd{text-align:center;margin-bottom:44px}
+.feat-hd h2{font-size:30px;font-weight:700;margin-bottom:8px}
+.feat-hd p{color:var(--gray-500);font-size:14px;max-width:440px;margin:0 auto}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.feat-card{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--r-xl);padding:26px 22px;text-align:center;transition:all .2s;cursor:default}
+.feat-card:hover{border-color:var(--blue-200);background:var(--blue-50);transform:translateY(-2px)}
+.feat-ico{width:54px;height:54px;background:var(--white);border:1px solid var(--gray-200);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;transition:all .2s}
+.feat-card:hover .feat-ico{background:var(--blue-100);border-color:var(--blue-200)}
+.feat-ico i{color:var(--blue-600);font-size:25px}
+.feat-card h3{font-family:'Fraunces',serif;font-size:16px;font-weight:700;margin-bottom:6px;color:var(--gray-900)}
+.feat-card p{font-size:13px;color:var(--gray-500);line-height:1.55}
+
+/* ===== CONTACT ===== */
+.contact-section{background:linear-gradient(135deg,var(--blue-950),var(--blue-900));padding:64px 28px}
+.contact-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.contact-section h2{font-size:30px;font-weight:700;color:#fff;margin-bottom:10px}
+.contact-section .sub{color:var(--blue-200);font-size:14px;line-height:1.75;margin-bottom:26px}
+.clinks{display:flex;flex-direction:column;gap:14px}
+.clink{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--blue-300);transition:color .2s}
+.clink:hover{color:var(--blue-200)}
+.clink i{font-size:18px;flex-shrink:0}
+.cform{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:var(--r-xl);padding:28px}
+.cform-title{font-family:'Fraunces',serif;color:#fff;font-size:17px;font-weight:700;margin-bottom:18px}
+.fg{margin-bottom:12px}
+.fg input,.fg select{width:100%;padding:10px 14px;border-radius:var(--r-sm);border:1px solid rgba(255,255,255,0.16);background:rgba(255,255,255,0.07);color:#fff;font-size:13px;font-family:'Outfit',sans-serif;outline:none;transition:all .2s}
+.fg input::placeholder{color:rgba(255,255,255,0.38)}
+.fg input:focus,.fg select:focus{border-color:var(--blue-400);background:rgba(255,255,255,0.12)}
+.fg select option{background:var(--blue-900);color:#fff}
+.btn-submit{width:100%;background:var(--blue-600);color:#fff;border:none;padding:12px;border-radius:var(--r-sm);font-size:14px;font-weight:700;font-family:'Outfit',sans-serif;cursor:pointer;transition:all .2s;letter-spacing:.3px;margin-top:4px}
+.btn-submit:hover{background:var(--blue-700)}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--blue-950);border-top:1px solid rgba(255,255,255,0.07);padding:20px 28px;text-align:center}
+.footer p{color:rgba(255,255,255,0.35);font-size:12px;font-family:'Outfit',sans-serif}
+
+/* ===== CART DRAWER ===== */
+.overlay{display:none;position:fixed;inset:0;z-index:600;background:rgba(0,0,0,0.55)}
+.drawer{position:absolute;right:0;top:0;bottom:0;width:min(390px,100%);background:var(--white);display:flex;flex-direction:column;box-shadow:-6px 0 32px rgba(0,0,0,0.12)}
+.drawer-hd{padding:18px 22px;border-bottom:1px solid var(--gray-200);display:flex;align-items:center;justify-content:space-between}
+.drawer-hd span{font-family:'Fraunces',serif;font-size:18px;font-weight:700}
+.d-close{background:none;border:none;font-size:22px;color:var(--gray-400);cursor:pointer;line-height:1}
+.d-close:hover{color:var(--gray-900)}
+.drawer-body{flex:1;overflow-y:auto;padding:18px 22px}
+.drawer-foot{padding:18px 22px;border-top:1px solid var(--gray-200)}
+.citem{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--gray-100)}
+.citem-img{width:54px;height:54px;background:var(--blue-50);border-radius:var(--r-sm);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:1px solid var(--blue-100)}
+.citem-img img{width:100%;height:100%;object-fit:contain;padding:4px}
+.citem-info{flex:1;min-width:0}
+.citem-name{font-weight:600;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px}
+.citem-unit{font-size:12px;color:var(--gray-400)}
+.qty-row{display:flex;align-items:center;gap:10px;margin-top:8px}
+.qbtn{width:27px;height:27px;border-radius:6px;border:1px solid var(--gray-200);background:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;line-height:1;transition:all .2s}
+.qbtn:hover{background:var(--gray-100)}
+.qnum{font-size:13px;font-weight:600;min-width:20px;text-align:center}
+.rmv-btn{margin-left:auto;background:none;border:none;cursor:pointer;color:var(--gray-400);font-size:17px;transition:color .2s}
+.rmv-btn:hover{color:#ef4444}
+.citem-tot{font-family:'Fraunces',serif;font-weight:700;font-size:15px;color:var(--blue-700);flex-shrink:0}
+.trow{display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px}
+.trow.grand{font-family:'Fraunces',serif;font-size:17px;font-weight:700;color:var(--blue-800);padding-top:10px;border-top:1px solid var(--gray-200);margin-top:6px}
+.free-note{background:var(--blue-50);border:1px solid var(--blue-200);border-radius:var(--r-sm);padding:8px 12px;font-size:12px;color:var(--blue-700);text-align:center;margin:10px 0;font-weight:500}
+.empty-cart{text-align:center;padding:52px 20px;color:var(--gray-400)}
+.empty-cart i{font-size:50px;display:block;margin-bottom:12px;color:var(--blue-200)}
+
+/* ===== TOAST ===== */
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--blue-800);color:#fff;padding:11px 22px;border-radius:var(--r-md);font-size:13px;font-weight:500;z-index:1000;transition:transform .3s;pointer-events:none;white-space:nowrap;box-shadow:var(--shadow-md);font-family:'Outfit',sans-serif}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ===== WHATSAPP ===== */
+.wa{position:fixed;bottom:28px;right:28px;width:54px;height:54px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);z-index:100;transition:transform .2s}
+.wa:hover{transform:scale(1.1)}
+.wa i{color:#fff;font-size:28px}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-visual{display:none}
+  .contact-inner{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .header-top{padding:11px 16px}
+  .btn-cta-sm{display:none}
+  .hero{padding:40px 16px}
+  .hero h1{font-size:26px}
+  .hero-stats{gap:18px}
+  .hero-divider{display:none}
+  .trust-item{padding:8px 14px}
+  .trust-item span{font-size:12px}
+  .products-section,.features-section,.contact-section{padding:40px 16px}
+  .sec-title{font-size:24px}
+  .promo{font-size:12px;padding:9px 16px}
+  .nav-inner{padding:0 16px}
+}
+@media(max-width:400px){
+  .pcard-btns{grid-template-columns:1fr}
+}
+</style>
 </head>
-
-<body class="bg-gray-100 text-gray-800 overflow-x-hidden">
-
-    <!-- HEADER -->
-    <header class="bg-blue-700 text-white shadow-md sticky top-0 z-50">
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-
-            <div class="flex items-center justify-between h-16">
-
-                <!-- Logo -->
-                <div>
-                    <h1 class="text-lg sm:text-2xl font-bold">
-                        KSB Domestic Pumps
-                    </h1>
-                </div>
-
-                <!-- Desktop Navigation -->
-                <nav class="hidden md:flex items-center gap-6 text-sm">
-
-                    <a href="../index.html"
-                        class="hover:text-yellow-300 transition duration-300">
-                        Home
-                    </a>
-
-                    <a href="#products"
-                        class="hover:text-yellow-300 transition duration-300">
-                        Products
-                    </a>
-
-                    <a href="#features"
-                        class="hover:text-yellow-300 transition duration-300">
-                        Features
-                    </a>
-
-                    <a href="#contact"
-                        class="hover:text-yellow-300 transition duration-300">
-                        Contact
-                    </a>
-
-                </nav>
-
-                <!-- Mobile Menu Button -->
-                <button id="menu-btn"
-                    class="md:hidden text-2xl">
-
-                    ☰
-
-                </button>
-
-            </div>
-
-            <!-- Mobile Menu -->
-            <div id="mobile-menu"
-                class="hidden md:hidden pb-4">
-
-                <nav class="flex flex-col gap-3 text-sm">
-
-                    <a href="../index.html"
-                        class="hover:text-yellow-300 transition">
-                        Home
-                    </a>
-
-                    <a href="#products"
-                        class="hover:text-yellow-300 transition">
-                        Products
-                    </a>
-
-                    <a href="#features"
-                        class="hover:text-yellow-300 transition">
-                        Features
-                    </a>
-
-                    <a href="#contact"
-                        class="hover:text-yellow-300 transition">
-                        Contact
-                    </a>
-
-                </nav>
-
-            </div>
-
-        </div>
-    </header>
-
-    <!-- HERO SECTION -->
-    <section class="bg-gradient-to-r from-blue-700 to-blue-500 text-white">
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-
-                <!-- Left Content -->
-                <div class="text-center lg:text-left">
-
-                    <h2 class="text-3xl sm:text-5xl font-bold leading-tight mb-5">
-
-                        Reliable Domestic Water Pumps
-
-                    </h2>
-
-                    <p class="text-sm sm:text-lg text-blue-100 mb-6">
-
-                        Discover energy-efficient and high-performance KSB
-                        domestic pumps designed for homes, apartments,
-                        and residential water systems.
-
-                    </p>
-
-                    <button
-                        class="bg-white text-blue-700 font-semibold px-6 py-3 rounded-xl hover:bg-yellow-300 transition duration-300">
-
-                        Explore Products
-
-                    </button>
-
-                </div>
-
-                <!-- Right Image -->
-                <div class="flex justify-center">
-
-                    <img src="../assets/domestic-pump1.jpg"
-                        alt="KSB Domestic Pump"
-                        class="rounded-2xl shadow-2xl w-full max-w-md object-cover">
-
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- PRODUCTS SECTION -->
-    <section id="products" class="py-14">
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-
-            <!-- Section Heading -->
-            <div class="text-center mb-12">
-
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
-
-                    Domestic Pump Products
-
-                </h2>
-
-                <p class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
-
-                    Premium range of KSB domestic pumps suitable for
-                    household water supply, pressure boosting,
-                    and silent operation.
-
-                </p>
-
-            </div>
-
-            <!-- Product Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- PRODUCT CARD 1 -->
-                <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
-
-                    <img src="../assets/domestic-pump1.jpg"
-                        alt="Home Water Pump"
-                        class="w-full h-56 object-cover">
-
-                    <div class="p-6">
-
-                        <h3 class="text-2xl font-semibold mb-3">
-
-                            Home Water Pump
-
-                        </h3>
-
-                        <p class="text-gray-600 mb-5 text-sm sm:text-base">
-
-                            Efficient domestic water pump designed
-                            for continuous household water supply.
-
-                        </p>
-
-                        <button
-                            class="w-full bg-blue-700 text-white py-3 rounded-xl hover:bg-blue-800 transition duration-300">
-
-                            View Details
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <!-- PRODUCT CARD 2 -->
-                <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
-
-                    <img src="../assets/domestic-pump2.jpg"
-                        alt="Booster Pump"
-                        class="w-full h-56 object-cover">
-
-                    <div class="p-6">
-
-                        <h3 class="text-2xl font-semibold mb-3">
-
-                            Booster Pump
-
-                        </h3>
-
-                        <p class="text-gray-600 mb-5 text-sm sm:text-base">
-
-                            High-pressure booster pump suitable for
-                            apartments and residential buildings.
-
-                        </p>
-
-                        <button
-                            class="w-full bg-blue-700 text-white py-3 rounded-xl hover:bg-blue-800 transition duration-300">
-
-                            View Details
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <!-- PRODUCT CARD 3 -->
-                <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
-
-                    <img src="../assets/domestic-pump3.jpg"
-                        alt="Silent Pump"
-                        class="w-full h-56 object-cover">
-
-                    <div class="p-6">
-
-                        <h3 class="text-2xl font-semibold mb-3">
-
-                            Silent Pump
-
-                        </h3>
-
-                        <p class="text-gray-600 mb-5 text-sm sm:text-base">
-
-                            Low-noise domestic pump ideal for indoor
-                            and residential installations.
-
-                        </p>
-
-                        <button
-                            class="w-full bg-blue-700 text-white py-3 rounded-xl hover:bg-blue-800 transition duration-300">
-
-                            View Details
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <!-- PRODUCT CARD 3 -->
-                <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
-
-                    <img src="../assets/domestic-pump3.jpg"
-                        alt="Silent Pump"
-                        class="w-full h-56 object-cover">
-
-                    <div class="p-6">
-
-                        <h3 class="text-2xl font-semibold mb-3">
-
-                            Silent Pump
-
-                        </h3>
-
-                        <p class="text-gray-600 mb-5 text-sm sm:text-base">
-
-                            Low-noise domestic pump ideal for indoor
-                            and residential installations.
-
-                        </p>
-
-                        <button
-                            class="w-full bg-blue-700 text-white py-3 rounded-xl hover:bg-blue-800 transition duration-300">
-
-                            View Details
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-                 <!-- PRODUCT CARD 3 -->
-                 <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
-
-                    <img src="../assets/domestic-pump3.jpg"
-                        alt="Silent Pump"
-                        class="w-full h-56 object-cover">
-
-                    <div class="p-6">
-
-                        <h3 class="text-2xl font-semibold mb-3">
-
-                            Silent Pump
-
-                        </h3>
-
-                        <p class="text-gray-600 mb-5 text-sm sm:text-base">
-
-                            Low-noise domestic pump ideal for indoor
-                            and residential installations.
-
-                        </p>
-
-                        <button
-                            class="w-full bg-blue-700 text-white py-3 rounded-xl hover:bg-blue-800 transition duration-300">
-
-                            View Details
-
-                        </button>
-
-                    </div>
-
-            </div>
-
-            <!-- PRODUCT CARD 3 -->
-                <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
-
-                    <img src="../assets/domestic-pump3.jpg"
-                        alt="Silent Pump"
-                        class="w-full h-56 object-cover">
-
-                    <div class="p-6">
-
-                        <h3 class="text-2xl font-semibold mb-3">
-
-                            Silent Pump
-
-                        </h3>
-
-                        <p class="text-gray-600 mb-5 text-sm sm:text-base">
-
-                            Low-noise domestic pump ideal for indoor
-                            and residential installations.
-
-                        </p>
-
-                        <button
-                            class="w-full bg-blue-700 text-white py-3 rounded-xl hover:bg-blue-800 transition duration-300">
-
-                            View Details
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-        </div>
-    </section>
-
-    <!-- FEATURES SECTION -->
-    <section id="features" class="bg-white py-14">
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-
-            <div class="text-center mb-12">
-
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
-
-                    Why Choose KSB Domestic Pumps?
-
-                </h2>
-
-            </div>
-
-            <!-- Features Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-                <!-- Feature -->
-                <div class="bg-gray-100 p-8 rounded-2xl shadow text-center">
-
-                    <div class="text-5xl mb-4">🏠</div>
-
-                    <h3 class="text-xl font-semibold mb-3">
-
-                        Home Friendly
-
-                    </h3>
-
-                    <p class="text-gray-600">
-
-                        Perfect for apartments, villas,
-                        and residential homes.
-
-                    </p>
-
-                </div>
-
-                <!-- Feature -->
-                <div class="bg-gray-100 p-8 rounded-2xl shadow text-center">
-
-                    <div class="text-5xl mb-4">⚡</div>
-
-                    <h3 class="text-xl font-semibold mb-3">
-
-                        Energy Saving
-
-                    </h3>
-
-                    <p class="text-gray-600">
-
-                        Efficient motor technology with
-                        low electricity consumption.
-
-                    </p>
-
-                </div>
-
-                <!-- Feature -->
-                <div class="bg-gray-100 p-8 rounded-2xl shadow text-center">
-
-                    <div class="text-5xl mb-4">🔇</div>
-
-                    <h3 class="text-xl font-semibold mb-3">
-
-                        Silent Operation
-
-                    </h3>
-
-                    <p class="text-gray-600">
-
-                        Low-noise performance for peaceful
-                        indoor usage.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact"
-        class="bg-blue-700 text-white py-14">
-
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-
-            <h2 class="text-3xl sm:text-4xl font-bold mb-4">
-
-                Need Product Assistance?
-
-            </h2>
-
-            <p class="text-blue-100 mb-8">
-
-                Contact us for pricing, specifications,
-                installation support, and dealer information.
-
-            </p>
-
-            <button
-                class="bg-white text-blue-700 font-semibold px-8 py-3 rounded-xl hover:bg-yellow-300 transition duration-300">
-
-                Contact Now
-
-            </button>
-
-        </div>
-
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-blue-900 text-white py-6">
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center text-sm sm:text-base">
-
-            <p>
-
-                © 2026 KSB Domestic Pumps. All Rights Reserved.
-
-            </p>
-
-        </div>
-
-    </footer>
-
-    <!-- MOBILE MENU SCRIPT -->
-    <script>
-
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-    </script>
-
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-top">
+    <div class="logo">
+      <div class="logo-mark"><i class="ti ti-droplet-half-2"></i></div>
+      <div>
+        <div class="logo-name">KSB Domestic</div>
+        <div class="logo-tagline">Home Pump Solutions</div>
+      </div>
+    </div>
+    <div class="search-wrap" id="search-wrap">
+      <input type="text" placeholder="Search domestic pumps…" id="search-input" oninput="doSearch()"/>
+    </div>
+    <div class="header-actions">
+      <button class="icon-btn" onclick="toggleSearch()" aria-label="Search"><i class="ti ti-search"></i></button>
+      <button class="icon-btn" onclick="openCart()" aria-label="Cart">
+        <i class="ti ti-shopping-cart"></i>
+        <span class="cart-dot" id="cart-dot">0</span>
+      </button>
+      <button class="btn-cta-sm" onclick="window.location.href='tel:+919876543210'">Call us</button>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <div class="nav-inner">
+      <span class="nav-link" onclick="goTo('hero')">Home</span>
+      <span class="nav-link" onclick="goTo('products-sec')">Products</span>
+      <span class="nav-link" onclick="goTo('features-sec')">Features</span>
+      <span class="nav-link" onclick="goTo('contact-sec')">Contact</span>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Reliable <em>Domestic</em><br>Water Pumps</h1>
+      <p class="hero-desc">Energy-efficient KSB pumps designed for homes, apartments and residential buildings. Quiet, durable, and ISI certified for Indian conditions.</p>
+      <div class="hero-btns">
+        <button class="btn-hero-primary" onclick="goTo('products-sec')">Explore products</button>
+        <button class="btn-hero-ghost" onclick="goTo('contact-sec')">Get a quote</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="val">40K+</div><div class="lbl">Homes served</div></div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat"><div class="val">2yr</div><div class="lbl">Warranty</div></div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat"><div class="val">4.9★</div><div class="lbl">Avg rating</div></div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat"><div class="val">500+</div><div class="lbl">Service centres</div></div>
+      </div>
+    </div>
+    <div class="hero-visual" id="hero-visual"></div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><i class="ti ti-shield-check"></i><span>ISI Certified</span></div>
+    <div class="trust-item"><i class="ti ti-bolt"></i><span>Energy Star Rated</span></div>
+    <div class="trust-item"><i class="ti ti-volume-off"></i><span>Silent Operation</span></div>
+    <div class="trust-item"><i class="ti ti-truck-delivery"></i><span>Free Delivery</span></div>
+    <div class="trust-item"><i class="ti ti-tool"></i><span>Free Installation</span></div>
+    <div class="trust-item"><i class="ti ti-rotate-clockwise"></i><span>Easy Returns</span></div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section id="products-sec" class="products-section">
+  <div class="sec-hd">
+    <div>
+      <h2 class="sec-title">Domestic pump range</h2>
+      <p class="sec-sub">Premium KSB pumps for every home need</p>
+    </div>
+    <div class="sort-row">
+      <label for="sort-sel">Sort:</label>
+      <select id="sort-sel" onchange="doSort()">
+        <option value="default">Featured</option>
+        <option value="price-asc">Price: Low to high</option>
+        <option value="price-desc">Price: High to low</option>
+        <option value="rating">Top rated</option>
+      </select>
+    </div>
+  </div>
+  <div class="chips">
+    <button class="chip active" onclick="doFilter(this,'all')">All pumps</button>
+    <button class="chip" onclick="doFilter(this,'home')">Home pump</button>
+    <button class="chip" onclick="doFilter(this,'booster')">Booster</button>
+    <button class="chip" onclick="doFilter(this,'silent')">Silent pump</button>
+    <button class="chip" onclick="doFilter(this,'pressure')">Pressure pump</button>
+    <button class="chip" onclick="doFilter(this,'inline')">Inline pump</button>
+  </div>
+  <div class="pgrid" id="pgrid"></div>
+  <div class="no-res" id="no-res"><i class="ti ti-search-off"></i>No products match your search.</div>
+</section>
+
+<!-- FEATURES -->
+<section id="features-sec" class="features-section">
+  <div class="feat-inner">
+    <div class="feat-hd">
+      <h2>Why choose KSB Domestic?</h2>
+      <p>Built for Indian homes — silent, efficient, and effortlessly reliable</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="feat-ico"><i class="ti ti-home"></i></div>
+        <h3>Home friendly</h3>
+        <p>Perfect for apartments, villas, and residential homes of all sizes</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ico"><i class="ti ti-bolt"></i></div>
+        <h3>Energy saving</h3>
+        <p>IE3 motors reduce electricity bills by up to 35% vs standard pumps</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ico"><i class="ti ti-volume-off"></i></div>
+        <h3>Silent operation</h3>
+        <p>Under 42dB noise level — won't disturb your household</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ico"><i class="ti ti-shield-check"></i></div>
+        <h3>2-year warranty</h3>
+        <p>Comprehensive coverage with 500+ authorised service centres</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ico"><i class="ti ti-droplet-check"></i></div>
+        <h3>Corrosion resistant</h3>
+        <p>Stainless steel and polymer components for long-lasting performance</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ico"><i class="ti ti-settings-automation"></i></div>
+        <h3>Auto dry-run protection</h3>
+        <p>Built-in sensor shuts off pump automatically to prevent damage</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact-sec" class="contact-section">
+  <div class="contact-inner">
+    <div>
+      <h2>Need assistance?</h2>
+      <p class="sub">Our team is ready to help with product selection, installation support, AMC plans, and dealer info.</p>
+      <div class="clinks">
+        <a href="tel:+919876543210" class="clink"><i class="ti ti-phone"></i>+91 98765 43210</a>
+        <a href="mailto:domestic@ksb.in" class="clink"><i class="ti ti-mail"></i>domestic@ksb.in</a>
+        <a href="https://wa.me/919876543210" class="clink" target="_blank"><i class="ti ti-brand-whatsapp"></i>WhatsApp support</a>
+        <div class="clink" style="color:var(--blue-400)"><i class="ti ti-map-pin"></i>Pan India delivery & installation</div>
+      </div>
+    </div>
+    <div class="cform">
+      <div class="cform-title">Quick enquiry</div>
+      <div class="fg"><input type="text" placeholder="Your name"/></div>
+      <div class="fg"><input type="tel" placeholder="Phone number"/></div>
+      <div class="fg">
+        <select>
+          <option value="">Pump type needed</option>
+          <option>Home water pump</option>
+          <option>Booster pump</option>
+          <option>Silent pump</option>
+          <option>Pressure pump</option>
+          <option>Inline pump</option>
+        </select>
+      </div>
+      <div class="fg"><input type="text" placeholder="City / State"/></div>
+      <button class="btn-submit" onclick="alert('Thank you! Our team will call you within 24 hours.')">Submit enquiry →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 KSB Domestic Pumps. All Rights Reserved. &nbsp;|&nbsp; ISI Certified &nbsp;·&nbsp; BIS Approved &nbsp;·&nbsp; Energy Star Rated</p>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/919876543210" class="wa" target="_blank" aria-label="WhatsApp">
+  <i class="ti ti-brand-whatsapp"></i>
+</a>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="cart-overlay" onclick="closeCart()">
+  <div class="drawer" onclick="event.stopPropagation()">
+    <div class="drawer-hd">
+      <span>Your cart</span>
+      <button class="d-close" onclick="closeCart()" aria-label="Close"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="drawer-body" id="cart-body"></div>
+    <div class="drawer-foot" id="cart-foot"></div>
+  </div>
+</div>
+
+<script>
+const products = [
+  {id:1, name:"Home Water Pump",    cat:"home",     price:13999, mrp:16999, rating:5, reviews:312, badge:"Best seller", bc:"b-blue",   img:"../assets/domestic-pump1.jpeg", desc:"Continuous household water supply, 0.5HP–1HP"},
+  {id:2, name:"Booster Pump",       cat:"booster",  price:18499, mrp:22000, rating:4, reviews:198, badge:"Popular",    bc:"b-green",  img:"../assets/domestic-pump2.jpg", desc:"High-pressure boost for apartments & buildings"},
+  {id:3, name:"Silent Pump",        cat:"silent",   price:16999, mrp:19999, rating:5, reviews:274, badge:"Top rated",  bc:"b-blue",   img:"../assets/domestic-pump3.jpg", desc:"Under 42dB — ideal for indoor installation"},
+  {id:4, name:"Pressure Pump",      cat:"pressure", price:21499, mrp:25000, rating:4, reviews:143, badge:"New",        bc:"b-purple", img:"../assets/domestic-pump4.jpeg", desc:"Constant pressure system for multi-storey homes"},
+  {id:5, name:"Inline Pump",        cat:"inline",   price:14999, mrp:17500, rating:5, reviews:89,  badge:null,         bc:"",         img:"../assets/domestic-pump5.jpg", desc:"Space-saving inline design for tight spaces"},
+  {id:6, name:"Mini Home Pump",     cat:"home",     price:9499,  mrp:11999, rating:4, reviews:221, badge:"Value pick", bc:"b-amber",  img:"../assets/domestic-pump6.jpg", desc:"Compact single-phase pump for small homes"},
+];
+
+let cart=[], filt="all", sort="default", q="";
+
+function stars(r){return "★".repeat(r)+"☆".repeat(5-r)}
+function discount(p,m){return Math.round((1-p/m)*100)}
+
+function render(){
+  let list=[...products];
+  if(filt!=="all") list=list.filter(p=>p.cat===filt);
+  if(q) list=list.filter(p=>p.name.toLowerCase().includes(q)||p.cat.includes(q)||p.desc.toLowerCase().includes(q));
+  if(sort==="price-asc") list.sort((a,b)=>a.price-b.price);
+  else if(sort==="price-desc") list.sort((a,b)=>b.price-a.price);
+  else if(sort==="rating") list.sort((a,b)=>b.rating-a.rating||(b.reviews-a.reviews));
+  const g=document.getElementById("pgrid");
+  const nr=document.getElementById("no-res");
+  if(!list.length){g.innerHTML="";nr.style.display="block";return}
+  nr.style.display="none";
+  g.innerHTML=list.map(p=>`
+  <div class="pcard">
+    <div class="pcard-img">
+      ${p.badge?`<span class="pcard-badge ${p.bc}">${p.badge}</span>`:""}
+      <button class="pcard-wishlist" id="wl-${p.id}" onclick="toggleWish(${p.id})" aria-label="Wishlist">
+        <i class="ti ti-heart"></i>
+      </button>
+      <img src="${p.img}" alt="${p.name}" loading="lazy"
+        onerror="this.style.opacity='0.3';this.style.filter='grayscale(1)'"/>
+    </div>
+    <div class="pcard-body">
+      <div class="pcard-cat">${p.cat.replace(/-/g," ")}</div>
+      <div class="pcard-name">${p.name}</div>
+      <div class="pcard-desc">${p.desc}</div>
+      <div class="pcard-stars">
+        <span class="star-txt">${stars(p.rating)}</span>
+        <span class="rev-cnt">(${p.reviews})</span>
+      </div>
+      <div class="pcard-price-row">
+        <span class="pcard-price">₹${p.price.toLocaleString("en-IN")}</span>
+        <span class="pcard-mrp">₹${p.mrp.toLocaleString("en-IN")}</span>
+        <span class="pcard-off">${discount(p.price,p.mrp)}% off</span>
+      </div>
+      <div class="pcard-btns">
+        <button class="btn-add" onclick="addCart(${p.id})">Add to cart</button>
+        <button class="btn-det" onclick="details(${p.id})">Details</button>
+      </div>
+    </div>
+  </div>`).join("");
+
+  // Build hero visual from first 3 products
+  const hv=document.getElementById("hero-visual");
+  if(hv && products.length){
+    hv.innerHTML=products.slice(0,3).map(p=>`
+    <div class="hero-img-card">
+      <img src="${p.img}" alt="${p.name}" onerror="this.style.opacity='0.3'"/>
+      <div>
+        <div class="hero-card-title">${p.name}</div>
+        <div class="hero-card-sub">${p.desc}</div>
+      </div>
+      <div class="hero-card-price">₹${p.price.toLocaleString("en-IN")}</div>
+    </div>`).join("");
+  }
+}
+
+function toggleWish(id){
+  const btn=document.getElementById("wl-"+id);
+  if(btn) btn.classList.toggle("liked");
+}
+
+function addCart(id){
+  const p=products.find(x=>x.id===id);
+  const ex=cart.find(x=>x.id===id);
+  if(ex) ex.qty++; else cart.push({...p,qty:1});
+  updateDot(); toast(p.name+" added to cart");
+}
+
+function updateDot(){
+  const t=cart.reduce((s,x)=>s+x.qty,0);
+  const el=document.getElementById("cart-dot");
+  el.textContent=t; el.style.display=t?"flex":"none";
+}
+
+function toast(msg){
+  const t=document.getElementById("toast");
+  t.textContent=msg; t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"),2500);
+}
+
+function details(id){
+  const p=products.find(x=>x.id===id);
+  alert(`${p.name}\n\nCategory: ${p.cat}\nPrice: ₹${p.price.toLocaleString("en-IN")} (MRP ₹${p.mrp.toLocaleString("en-IN")})\n${p.desc}\nRating: ${p.rating}/5 (${p.reviews} reviews)\n\nFor specs & installation, call +91 98765 43210`);
+}
+
+function openCart(){
+  document.getElementById("cart-overlay").style.display="block";
+  renderCart();
+}
+function closeCart(){document.getElementById("cart-overlay").style.display="none"}
+
+function renderCart(){
+  const cb=document.getElementById("cart-body");
+  const cf=document.getElementById("cart-foot");
+  if(!cart.length){
+    cb.innerHTML=`<div class="empty-cart"><i class="ti ti-shopping-cart"></i>Your cart is empty<br><span style="font-size:13px;display:block;margin-top:6px">Add some pumps to get started</span></div>`;
+    cf.innerHTML=""; return;
+  }
+  cb.innerHTML=cart.map(p=>`
+  <div class="citem">
+    <div class="citem-img"><img src="${p.img}" alt="${p.name}" onerror="this.style.opacity='0.3'"/></div>
+    <div class="citem-info">
+      <div class="citem-name">${p.name}</div>
+      <div class="citem-unit">₹${p.price.toLocaleString("en-IN")} each</div>
+      <div class="qty-row">
+        <button class="qbtn" onclick="chQty(${p.id},-1)">−</button>
+        <span class="qnum">${p.qty}</span>
+        <button class="qbtn" onclick="chQty(${p.id},1)">+</button>
+        <button class="rmv-btn" onclick="rmItem(${p.id})" aria-label="Remove"><i class="ti ti-trash"></i></button>
+      </div>
+    </div>
+    <div class="citem-tot">₹${(p.price*p.qty).toLocaleString("en-IN")}</div>
+  </div>`).join("");
+  const sub=cart.reduce((s,x)=>s+x.price*x.qty,0);
+  const ship=sub>=15000?0:399;
+  cf.innerHTML=`
+  <div class="trow"><span style="color:var(--gray-500)">Subtotal</span><span>₹${sub.toLocaleString("en-IN")}</span></div>
+  <div class="trow"><span style="color:var(--gray-500)">Delivery</span><span style="color:${ship===0?"#16a34a":"inherit"}">${ship===0?"Free ✓":"₹"+ship}</span></div>
+  <div class="trow grand"><span>Total</span><span>₹${(sub+ship).toLocaleString("en-IN")}</span></div>
+  ${ship>0?`<div class="free-note">Add ₹${(15000-sub).toLocaleString("en-IN")} more for free delivery</div>`:`<div class="free-note">✓ Free delivery applied!</div>`}
+  <button class="btn-submit" style="border-radius:var(--r-sm)" onclick="checkout()">Proceed to checkout →</button>
+  <button class="btn-det" style="width:100%;margin-top:8px;padding:10px;border-radius:var(--r-sm);font-size:13px" onclick="closeCart()">Continue shopping</button>`;
+}
+
+function chQty(id,d){
+  const i=cart.findIndex(x=>x.id===id);
+  cart[i].qty+=d;
+  if(cart[i].qty<=0) cart.splice(i,1);
+  updateDot(); renderCart();
+}
+function rmItem(id){cart=cart.filter(x=>x.id!==id);updateDot();renderCart();}
+function checkout(){
+  const items=cart.map(x=>x.qty+"x "+x.name).join(", ");
+  alert("Order summary:\n"+items+"\n\nTo confirm, call:\n+91 98765 43210\nor WhatsApp: wa.me/919876543210");
+}
+
+function doFilter(el,cat){
+  document.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));
+  el.classList.add("active"); filt=cat; render();
+}
+function doSort(){sort=document.getElementById("sort-sel").value;render();}
+function doSearch(){q=document.getElementById("search-input").value.toLowerCase();render();}
+function toggleSearch(){
+  const w=document.getElementById("search-wrap");
+  const on=w.style.display==="flex";
+  w.style.display=on?"none":"flex";
+  if(!on) w.querySelector("input").focus();
+}
+function goTo(id){
+  const el=document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:"smooth"});
+}
+
+render();
+</script>
 </body>
-
 </html>
