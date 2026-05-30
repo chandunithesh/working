@@ -2462,12 +2462,12 @@
                 <h3 class="company-modal-title" id="companyModalTitle">Work in progress</h3>
                 <div class="modal-cat-btns">
                     <button class="modal-cat-btn"
-                        onclick="alert('Agriculture products for ' + document.getElementById('companyModalTitle').textContent + ' coming soon')">
+                        onclick="openCategoryPage('agriculture')">
                         <img src="assets/Agri.jpg" alt="Agriculture" class="modal-cat-img">
                         <span>Agriculture</span>
                     </button>
                     <button class="modal-cat-btn"
-                        onclick="alert('Domestic products for ' + document.getElementById('companyModalTitle').textContent + ' coming soon')">
+                        onclick="openCategoryPage('domestic')">
                         <img src="assets/domestic.png" alt="Domestic" class="modal-cat-img">
                         <span>Domestic</span>
                     </button>
@@ -2475,6 +2475,44 @@
                 <p class="company-modal-desc" id="companyModalDesc">Content in progress — shortly updated.</p>
             </div>
         </div>
+
+            <script>
+
+                    function showCompany(name) {
+
+                        var modal = document.getElementById('companyModal');
+                        var title = document.getElementById('companyModalTitle');
+                        var desc = document.getElementById('companyModalDesc');
+
+                        title.textContent = name;
+                        desc.textContent = 'Work in progress — shortly updated.';
+
+                        modal.classList.add('open');
+                        modal.setAttribute('aria-hidden', 'false');
+                    }
+
+                    function closeCompanyModal() {
+
+                        var modal = document.getElementById('companyModal');
+
+                        modal.classList.remove('open');
+                        modal.setAttribute('aria-hidden', 'true');
+                    }
+
+                    function openCategoryPage(category) {
+
+                        let company = document.getElementById('companyModalTitle')
+                            .textContent
+                            .trim()
+                            .toLowerCase();
+
+                        company = company.replace(/\s+/g, '-');
+
+                        window.location.href =
+                            `products/${company}-${category}.html`;
+                    }
+
+                </script>
 
         <style>
             .company-grid {
@@ -2690,38 +2728,6 @@
                 }
             }
         </style>
-
-        <script>
-            function showCompany(name) {
-                var modal = document.getElementById('companyModal');
-                var title = document.getElementById('companyModalTitle');
-                var desc = document.getElementById('companyModalDesc');
-                title.textContent = name;
-                desc.textContent = 'Work in progress — shortly updated.';
-                modal.classList.add('open');
-                modal.setAttribute('aria-hidden', 'false');
-            }
-
-            function closeCompanyModal() {
-                var modal = document.getElementById('companyModal');
-                if (!modal) return;
-                modal.classList.remove('open');
-                modal.setAttribute('aria-hidden', 'true');
-            }
-
-            (function attachCompanyModalBehaviors() {
-                var modal = document.getElementById('companyModal');
-                if (!modal) return;
-
-                modal.addEventListener('click', function (e) {
-                    if (e.target === modal) closeCompanyModal();
-                });
-
-                document.addEventListener('keydown', function (e) {
-                    if (e.key === 'Escape') closeCompanyModal();
-                });
-            })();
-        </script>
     </section>
 
     <!-- ══ CERTIFICATES ══ -->
@@ -3121,7 +3127,7 @@
             entries.forEach((e, i) => {
                 if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 75); ro.unobserve(e.target); }
             });
-        }, { threshold: .1 });
+        }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(r => ro.observe(r));
 
         // Hero canvas particles
