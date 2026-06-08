@@ -263,7 +263,7 @@ input,select,textarea{font-family:'Outfit',sans-serif}
 
 <!-- PROMO -->
 <div class="promo-bar">
-  <i class="ti ti-discount"></i> Free delivery on orders above ₹20,000 &nbsp;·&nbsp; Call <strong>+91 98765 43210</strong> for bulk pricing
+  <i class="ti ti-discount"></i> Free delivery on orders above ₹20,000 &nbsp;·&nbsp; Call <strong>+91 9246607214</strong> for bulk pricing
 </div>
 
 <!-- HEADER -->
@@ -284,7 +284,7 @@ input,select,textarea{font-family:'Outfit',sans-serif}
         <p class="text-sm text-green-100">Pump Solutions</p>
     </div>
 </div>
-    <div class="header-search" id="search-wrap">
+    <!-- <div class="header-search" id="search-wrap">
       <input type="text" placeholder="Search pumps, categories…" id="search-input" oninput="filterProducts()"/>
     </div>
     <div class="header-actions">
@@ -292,8 +292,8 @@ input,select,textarea{font-family:'Outfit',sans-serif}
       <button class="icon-btn" onclick="showCart()" title="Cart" aria-label="View cart">
         <i class="ti ti-shopping-cart"></i>
         <span class="cart-badge" id="cart-count">0</span>
-      </button>
-      <button class="btn-advice" onclick="window.open('tel:+919876543210')">Get advice</button>
+      </button> -->
+      <button class="btn-advice" onclick="window.open('tel:+919246607214')">Get advice</button>
     </div>
   </div>
   <nav class="header-nav">
@@ -315,7 +315,7 @@ input,select,textarea{font-family:'Outfit',sans-serif}
       <p>Reliable KSB water pumps for irrigation, borewell, farming, and agricultural water management. Trusted by 50,000+ farmers across India.</p>
       <div class="hero-btns">
         <button class="btn-primary-hero" onclick="scrollToId('products-sec')">Explore products</button>
-        <button class="btn-ghost-hero" onclick="window.open('tel:+919876543210')">Call us now</button>
+        <button class="btn-ghost-hero" onclick="window.open('tel:+919246607214')">Call us now</button>
       </div>
       <div class="hero-stats">
         <div class="stat-item"><div class="num">50K+</div><div class="label">Farmers served</div></div>
@@ -431,13 +431,13 @@ input,select,textarea{font-family:'Outfit',sans-serif}
       <h2>Need assistance?</h2>
       <p>Contact us for pricing, dealer support, installation help, and subsidy scheme information. Our experts are ready to guide you to the right pump for your land.</p>
       <div class="contact-links">
-        <a href="tel:+919876543210" class="contact-link">
-          <div class="contact-link-icon"><i class="ti ti-phone"></i></div>+91 98765 43210
+        <a href="tel:+919246607214" class="contact-link">
+          <div class="contact-link-icon"><i class="ti ti-phone"></i></div>+91 92466 07214
         </a>
         <a href="mailto:support@ksbagriculture.in" class="contact-link">
           <div class="contact-link-icon"><i class="ti ti-mail"></i></div>support@ksbagriculture.in
         </a>
-        <a href="https://wa.me/919876543210" class="contact-link" target="_blank">
+        <a href="https://wa.me/919246607214" class="contact-link" target="_blank">
           <div class="contact-link-icon"><i class="ti ti-brand-whatsapp"></i></div>WhatsApp support
         </a>
         <div class="contact-link" style="cursor:default">
@@ -471,7 +471,7 @@ input,select,textarea{font-family:'Outfit',sans-serif}
 </footer>
 
 <!-- WHATSAPP -->
-<a href="https://wa.me/919876543210" class="wa-btn" target="_blank" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/919246607214" class="wa-btn" target="_blank" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
   <i class="ti ti-brand-whatsapp"></i>
 </a>
 
@@ -534,7 +534,7 @@ function renderProducts(){
       </div>
       <div class="card-price">₹${p.price.toLocaleString('en-IN')}</div>
       <div class="card-btns">
-        <button class="btn-primary" onclick="addToCart(${p.id})">Add to cart</button>
+        <!-- <button class="btn-primary" onclick="addToCart(${p.id})">Add to cart</button> -->
         <button class="btn-outline" onclick="viewDetails(${p.id})">Details</button>
       </div>
     </div>
@@ -563,7 +563,7 @@ function showToast(msg){
 }
 function viewDetails(id){
   const p=products.find(x=>x.id===id);
-  alert(`${p.name}\n\nCategory: ${p.category}\nPrice: ₹${p.price.toLocaleString('en-IN')}\n${p.desc}\n\nRating: ${p.rating}/5\n\nFor full specifications, call: +91 98765 43210`);
+  alert(`${p.name}\n\nCategory: ${p.category}\nPrice: ₹${p.price.toLocaleString('en-IN')}\n${p.desc}\n\nRating: ${p.rating}/5\n\nFor full specifications, call: +91 9246607214 `);
 }
 function showCart(){
   document.getElementById("cart-drawer").style.display="block";
@@ -612,7 +612,7 @@ function changeQty(id,d){
 function removeItem(id){cart=cart.filter(x=>x.id!==id);updateBadge();renderCart();}
 function checkout(){
   const items=cart.map(x=>x.qty+'x '+x.name).join(', ');
-  alert('Order summary:\n'+items+'\n\nTo place your order, call:\n+91 98765 43210\n\nOr WhatsApp: wa.me/919876543210');
+  alert('Order summary:\n'+items+'\n\nTo place your order, call:\n+91 92466 07214\n\nOr WhatsApp: wa.me/919246607214');
 }
 function filterCategory(el,cat){
   document.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));

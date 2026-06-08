@@ -276,7 +276,7 @@ img{display:block}
 <!-- PROMO -->
 <div class="promo">
   <i class="ti ti-discount"></i>
-  Free delivery on orders above ₹15,000 &nbsp;·&nbsp; Call <strong>+91 98765 43210</strong> for installation quotes
+  Free delivery on orders above ₹15,000 &nbsp;·&nbsp; Call <strong>+91 92466 07214</strong> for installation quotes
 </div>
 
 <!-- HEADER -->
@@ -296,7 +296,7 @@ img{display:block}
         <div class="logo-tagline">Home Pump Solutions</div>
       </div>
     </div>
-    <div class="search-wrap" id="search-wrap">
+    <!-- <div class="search-wrap" id="search-wrap">
       <input type="text" placeholder="Search domestic pumps…" id="search-input" oninput="doSearch()"/>
     </div>
     <div class="header-actions">
@@ -304,8 +304,8 @@ img{display:block}
       <button class="icon-btn" onclick="openCart()" aria-label="Cart">
         <i class="ti ti-shopping-cart"></i>
         <span class="cart-dot" id="cart-dot">0</span>
-      </button>
-      <button class="btn-cta-sm" onclick="window.location.href='tel:+919876543210'">Call us</button>
+      </button> -->
+      <button class="btn-cta-sm" onclick="window.location.href='tel:+919246607214'">Call us</button>
     </div>
   </div>
   <nav class="nav-bar">
@@ -430,13 +430,13 @@ img{display:block}
       <h2>Need assistance?</h2>
       <p class="sub">Our team is ready to help with product selection, installation support, AMC plans, and dealer info. We'll guide you to the perfect pump for your home.</p>
       <div class="clinks">
-        <a href="tel:+919876543210" class="clink">
-          <div class="clink-icon"><i class="ti ti-phone"></i></div>+91 98765 43210
+        <a href="tel:+919246607214" class="clink">
+          <div class="clink-icon"><i class="ti ti-phone"></i></div>+91 9246607214 
         </a>
         <a href="mailto:domestic@ksb.in" class="clink">
           <div class="clink-icon"><i class="ti ti-mail"></i></div>domestic@ksb.in
         </a>
-        <a href="https://wa.me/919876543210" class="clink" target="_blank">
+        <a href="https://wa.me/919246607214" class="clink" target="_blank">
           <div class="clink-icon"><i class="ti ti-brand-whatsapp"></i></div>WhatsApp support
         </a>
         <div class="clink" style="cursor:default">
@@ -470,7 +470,7 @@ img{display:block}
 </footer>
 
 <!-- WHATSAPP -->
-<a href="https://wa.me/919876543210" class="wa" target="_blank" aria-label="WhatsApp">
+<a href="https://wa.me/919246607214" class="wa" target="_blank" aria-label="WhatsApp">
   <i class="ti ti-brand-whatsapp"></i>
 </a>
 
@@ -538,7 +538,7 @@ function render(){
         <span class="pcard-off">${discount(p.price,p.mrp)}% off</span>
       </div>
       <div class="pcard-btns">
-        <button class="btn-add" onclick="addCart(${p.id})">Add to cart</button>
+        <!-- <button class="btn-add" onclick="addCart(${p.id})">Add to cart</button> -->
         <button class="btn-det" onclick="details(${p.id})">Details</button>
       </div>
     </div>
@@ -580,7 +580,7 @@ function toast(msg){
 }
 function details(id){
   const p=products.find(x=>x.id===id);
-  alert(`${p.name}\n\nCategory: ${p.cat}\nPrice: ₹${p.price.toLocaleString("en-IN")} (MRP ₹${p.mrp.toLocaleString("en-IN")})\n${p.desc}\nRating: ${p.rating}/5 (${p.reviews} reviews)\n\nFor specs & installation, call +91 98765 43210`);
+  alert(`${p.name}\n\nCategory: ${p.cat}\nPrice: ₹${p.price.toLocaleString("en-IN")} (MRP ₹${p.mrp.toLocaleString("en-IN")})\n${p.desc}\nRating: ${p.rating}/5 (${p.reviews} reviews)\n\nFor specs & installation, call +91 9246607214 `);
 }
 function openCart(){
   document.getElementById("cart-overlay").style.display="block";
@@ -628,7 +628,7 @@ function chQty(id,d){
 function rmItem(id){cart=cart.filter(x=>x.id!==id);updateDot();renderCart();}
 function checkout(){
   const items=cart.map(x=>x.qty+"x "+x.name).join(", ");
-  alert("Order summary:\n"+items+"\n\nTo confirm, call:\n+91 98765 43210\nor WhatsApp: wa.me/919876543210");
+  alert("Order summary:\n"+items+"\n\nTo confirm, call:\n+91 9246607214 \nor WhatsApp: wa.me/9246607214 ");
 }
 function doFilter(el,cat){
   document.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));
