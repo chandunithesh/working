@@ -137,6 +137,7 @@ input,select,textarea{font-family:'Outfit',sans-serif}
 /* ─── PRODUCT CARD ─── */
 .product-card{background:var(--white);border-radius:var(--radius-xl);border:1.5px solid var(--border-light);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s}
 .product-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--navy-100)}
+.product-card.hidden-card{display:none}
 .card-img-wrap{background:linear-gradient(135deg,var(--sand-100),var(--navy-50));padding:32px 24px;position:relative;display:flex;align-items:center;justify-content:center;min-height:175px}
 .card-img-wrap .icon-circle{width:92px;height:92px;background:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid var(--sand-200);box-shadow:var(--shadow-sm)}
 .card-img-wrap .icon-circle i{color:var(--navy-700);font-size:40px}
@@ -154,7 +155,7 @@ input,select,textarea{font-family:'Outfit',sans-serif}
 .stars-text{color:var(--amber-500);font-size:12px}
 .reviews-count{font-family:'Outfit',sans-serif;font-size:11px;color:var(--text-muted)}
 .card-price{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--navy-800);margin-bottom:16px}
-.card-btns{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.card-btns{display:grid;grid-template-columns:1fr;gap:9px}
 .btn-primary{background:var(--navy-800);color:var(--white);border:none;padding:10px 0;border-radius:var(--radius-sm);font-size:13px;font-weight:600;transition:all .2s;width:100%;font-family:'Outfit',sans-serif}
 .btn-primary:hover{background:var(--navy-700);transform:translateY(-1px)}
 .btn-outline{background:transparent;color:var(--navy-700);border:1.5px solid var(--navy-100);padding:10px 0;border-radius:var(--radius-sm);font-size:13px;font-weight:500;transition:all .2s;width:100%;font-family:'Outfit',sans-serif}
@@ -260,11 +261,6 @@ input,select,textarea{font-family:'Outfit',sans-serif}
 </style>
 </head>
 <body>
-
-<!-- PROMO -->
-<div class="promo-bar">
-  <i class="ti ti-discount"></i> Free delivery on orders above ₹20,000 &nbsp;·&nbsp; Call <strong>+91 9246607214</strong> for bulk pricing
-</div>
 
 <!-- HEADER -->
 <header class="header">
@@ -375,7 +371,149 @@ input,select,textarea{font-family:'Outfit',sans-serif}
     <button class="chip" onclick="filterCategory(this,'monoblock')">Monoblock</button>
     <button class="chip" onclick="filterCategory(this,'solar')">Solar</button>
   </div>
-  <div class="product-grid" id="product-grid"></div>
+
+  <!-- Product cards are static HTML below. Each card carries data-* attributes
+       (data-category, data-price, data-rating) so the filter/sort/search script
+       can read product details directly from the markup instead of a JS array. -->
+  <div class="product-grid" id="product-grid">
+
+    <article class="product-card" data-category="borewell" data-price="18999" data-rating="5" data-name="KSB Borewell pump">
+      <div class="card-img-wrap">
+        <img src="../assets/pump1.jpg" alt="KSB Borewell pump" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy"/>
+        <div class="icon-circle" style="display:none"><i class="ti ti-droplet-filled"></i></div>
+      </div>
+      <div class="card-body">
+        <div class="card-category">borewell</div>
+        <div class="card-name">KSB Borewell pump</div>
+        <div class="card-desc">Deep borewell submersible, 3-phase, 2HP–15HP</div>
+        <div class="card-stars">
+          <span class="stars-text">★★★★★</span>
+          <span class="reviews-count">(0)</span>
+        </div>
+        <div class="card-price">₹18,999</div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="submersible" data-price="22499" data-rating="4" data-name="KSB Submersible pump">
+      <div class="card-img-wrap">
+        <img src="../assets/pump2.jpg" alt="KSB Submersible pump" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy"/>
+        <div class="icon-circle" style="display:none"><i class="ti ti-droplet-filled"></i></div>
+      </div>
+      <div class="card-body">
+        <div class="card-category">submersible</div>
+        <div class="card-name">KSB Submersible pump</div>
+        <div class="card-desc">High-head submersible, ideal for deep wells</div>
+        <div class="card-stars">
+          <span class="stars-text">★★★★☆</span>
+          <span class="reviews-count">(0)</span>
+        </div>
+        <div class="card-price">₹22,499</div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="openwell" data-price="20999" data-rating="5" data-name="Openwell pump">
+      <div class="card-img-wrap">
+        <img src="../assets/pump3.jpg" alt="Openwell pump" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy"/>
+        <div class="icon-circle" style="display:none"><i class="ti ti-droplet-filled"></i></div>
+      </div>
+      <div class="card-body">
+        <div class="card-category">openwell</div>
+        <div class="card-name">Openwell pump</div>
+        <div class="card-desc">Self-priming centrifugal for open wells</div>
+        <div class="card-stars">
+          <span class="stars-text">★★★★★</span>
+          <span class="reviews-count">(0)</span>
+        </div>
+        <div class="card-price">₹20,999</div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="monoblock" data-price="16499" data-rating="4" data-name="Monoblock pump">
+      <div class="card-img-wrap">
+        <img src="../assets/pump4.jpg" alt="Monoblock pump" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy"/>
+        <div class="icon-circle" style="display:none"><i class="ti ti-droplet-filled"></i></div>
+      </div>
+      <div class="card-body">
+        <div class="card-category">monoblock</div>
+        <div class="card-name">Monoblock pump</div>
+        <div class="card-desc">Compact monoblock for surface irrigation</div>
+        <div class="card-stars">
+          <span class="stars-text">★★★★☆</span>
+          <span class="reviews-count">(0)</span>
+        </div>
+        <div class="card-price">₹16,499</div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="solar" data-price="34999" data-rating="5" data-name="Solar submersible">
+      <div class="card-img-wrap">
+        <img src="../assets/pump1.jpg" alt="Solar submersible" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy"/>
+        <div class="icon-circle" style="display:none"><i class="ti ti-droplet-filled"></i></div>
+      </div>
+      <div class="card-body">
+        <div class="card-category">solar</div>
+        <div class="card-name">Solar submersible</div>
+        <div class="card-desc">PM-KUSUM eligible solar pump, 3HP</div>
+        <div class="card-stars">
+          <span class="stars-text">★★★★★</span>
+          <span class="reviews-count">(0)</span>
+        </div>
+        <div class="card-price">₹34,999</div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="borewell" data-price="12499" data-rating="4" data-name="KSB Mini borewell">
+      <div class="card-img-wrap">
+        <img src="../assets/pump2.jpg" alt="KSB Mini borewell" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy"/>
+        <div class="icon-circle" style="display:none"><i class="ti ti-droplet-filled"></i></div>
+      </div>
+      <div class="card-body">
+        <div class="card-category">borewell</div>
+        <div class="card-name">KSB Mini borewell</div>
+        <div class="card-desc">Single-phase borewell for small farms</div>
+        <div class="card-stars">
+          <span class="stars-text">★★★★☆</span>
+          <span class="reviews-count">(0)</span>
+        </div>
+        <div class="card-price">₹12,499</div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="openwell" data-price="24999" data-rating="5" data-name="Heavy-duty openwell">
+      <div class="card-img-wrap">
+        <img src="../assets/pump3.jpg" alt="Heavy-duty openwell" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy"/>
+        <div class="icon-circle" style="display:none"><i class="ti ti-droplet-filled"></i></div>
+      </div>
+      <div class="card-body">
+        <div class="card-category">openwell</div>
+        <div class="card-name">Heavy-duty openwell</div>
+        <div class="card-desc">Large-capacity openwell for 10+ acre farms</div>
+        <div class="card-stars">
+          <span class="stars-text">★★★★★</span>
+          <span class="reviews-count">(0)</span>
+        </div>
+        <div class="card-price">₹24,999</div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="solar" data-price="28999" data-rating="4" data-name="Solar monoblock">
+      <div class="card-img-wrap">
+        <img src="../assets/pump4.jpg" alt="Solar monoblock" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy"/>
+        <div class="icon-circle" style="display:none"><i class="ti ti-droplet-filled"></i></div>
+      </div>
+      <div class="card-body">
+        <div class="card-category">solar</div>
+        <div class="card-name">Solar monoblock</div>
+        <div class="card-desc">Off-grid solar monoblock, 2HP</div>
+        <div class="card-stars">
+          <span class="stars-text">★★★★☆</span>
+          <span class="reviews-count">(0)</span>
+        </div>
+        <div class="card-price">₹28,999</div>
+      </div>
+    </article>
+
+  </div>
   <div class="no-results" id="no-results">
     <i class="ti ti-search-off"></i>
     No products match your search.
@@ -478,7 +616,7 @@ input,select,textarea{font-family:'Outfit',sans-serif}
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-<!-- CART DRAWER -->
+<!-- CART DRAWER (kept for layout parity; cart logic no longer wired to product cards) -->
 <div class="drawer-overlay" id="cart-drawer" onclick="closeCart()">
   <div class="drawer" onclick="event.stopPropagation()">
     <div class="drawer-header">
@@ -491,80 +629,85 @@ input,select,textarea{font-family:'Outfit',sans-serif}
 </div>
 
 <script>
-const products=[
-  {id:1,name:"KSB Borewell pump",category:"borewell",price:18999,rating:5,reviews:0,img:"../assets/pump1.jpg",desc:"Deep borewell submersible, 3-phase, 2HP–15HP"},
-  {id:2,name:"KSB Submersible pump",category:"submersible",price:22499,rating:4,reviews:0,img:"../assets/pump2.jpg",desc:"High-head submersible, ideal for deep wells"},
-  {id:3,name:"Openwell pump",category:"openwell",price:20999,rating:5,reviews:0,img:"../assets/pump3.jpg",desc:"Self-priming centrifugal for open wells"},
-  {id:4,name:"Monoblock pump",category:"monoblock",price:16499,rating:4,reviews:0,img:"../assets/pump4.jpg",desc:"Compact monoblock for surface irrigation"},
-  {id:5,name:"Solar submersible",category:"solar",price:34999,rating:5,reviews:0,img:"../assets/pump1.jpg",desc:"PM-KUSUM eligible solar pump, 3HP"},
-  {id:6,name:"KSB Mini borewell",category:"borewell",price:12499,rating:4,reviews:0,img:"../assets/pump2.jpg",desc:"Single-phase borewell for small farms"},
-  {id:7,name:"Heavy-duty openwell",category:"openwell",price:24999,rating:5,reviews:0,img:"../assets/pump3.jpg",desc:"Large-capacity openwell for 10+ acre farms"},
-  {id:8,name:"Solar monoblock",category:"solar",price:28999,rating:4,reviews:0,img:"../assets/pump4.jpg",desc:"Off-grid solar monoblock, 2HP"}
-];
+/*
+  Products now live as static HTML cards inside #product-grid (see markup above).
+  Each .product-card carries data-category / data-price / data-rating / data-name
+  attributes. The functions below read those attributes straight from the DOM
+  to power filtering, sorting and search — no JS product array involved.
+*/
 
-let cart=[],currentFilter="all",currentSort="default",searchQ="";
+let currentFilter = "all";
+let currentSort = "default";
+let searchQ = "";
 
-function star(r){return"★".repeat(r)+"☆".repeat(5-r)}
-
-function renderProducts(){
-  let list=[...products];
-  if(currentFilter!=="all") list=list.filter(p=>p.category===currentFilter);
-  if(searchQ) list=list.filter(p=>p.name.toLowerCase().includes(searchQ)||p.category.includes(searchQ)||p.desc.toLowerCase().includes(searchQ));
-  if(currentSort==="price-asc") list.sort((a,b)=>a.price-b.price);
-  else if(currentSort==="price-desc") list.sort((a,b)=>b.price-a.price);
-  else if(currentSort==="rating") list.sort((a,b)=>b.rating-a.rating||(b.reviews-a.reviews));
-  const g=document.getElementById("product-grid");
-  const nr=document.getElementById("no-results");
-  if(!list.length){g.innerHTML="";nr.style.display="block";return}
-  nr.style.display="none";
-  g.innerHTML=list.map(p=>`
-  <article class="product-card">
-    <div class="card-img-wrap">
-      ${p.badge?`<span class="card-badge ${p.badgeClass}">${p.badge}</span>`:''}
-      <img src="${p.img}" alt="${p.name}" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy"/>
-      <div class="icon-circle" style="display:none"><i class="ti ti-droplet-filled"></i></div>
-    </div>
-    <div class="card-body">
-      <div class="card-category">${p.category}</div>
-      <div class="card-name">${p.name}</div>
-      <div class="card-desc">${p.desc}</div>
-      <div class="card-stars">
-        <span class="stars-text">${star(p.rating)}</span>
-        <span class="reviews-count">(${p.reviews})</span>
-      </div>
-      <div class="card-price">₹${p.price.toLocaleString('en-IN')}</div>
-      <div class="card-btns">
-        <!-- <button class="btn-primary" onclick="addToCart(${p.id})">Add to cart</button> -->
-        <button class="btn-outline" onclick="viewDetails(${p.id})">Details</button>
-      </div>
-    </div>
-  </article>`).join("");
+function getCardData(card){
+  return {
+    el: card,
+    category: card.dataset.category,
+    price: parseFloat(card.dataset.price),
+    rating: parseFloat(card.dataset.rating),
+    name: card.dataset.name || ""
+  };
 }
 
-function addToCart(id){
-  const p=products.find(x=>x.id===id);
-  const ex=cart.find(x=>x.id===id);
-  if(ex) ex.qty++;
-  else cart.push({...p,qty:1});
-  updateBadge();
-  showToast(p.name+" added to cart");
+function applyProductView(){
+  const grid = document.getElementById("product-grid");
+  const noResults = document.getElementById("no-results");
+  const cards = Array.from(grid.querySelectorAll(".product-card"));
+  const data = cards.map(getCardData);
+
+  // Determine visibility per card (filter + search)
+  let anyVisible = false;
+  data.forEach(d => {
+    const matchesCategory = currentFilter === "all" || d.category === currentFilter;
+    const haystack = (d.name + " " + d.category).toLowerCase();
+    const matchesSearch = !searchQ || haystack.includes(searchQ);
+    const visible = matchesCategory && matchesSearch;
+    d.el.classList.toggle("hidden-card", !visible);
+    if(visible) anyVisible = true;
+  });
+
+  noResults.style.display = anyVisible ? "none" : "block";
+
+  // Sort: reorder the visible+hidden cards together within the grid
+  let sorted = [...data];
+  if(currentSort === "price-asc"){
+    sorted.sort((a,b)=>a.price-b.price);
+  } else if(currentSort === "price-desc"){
+    sorted.sort((a,b)=>b.price-a.price);
+  } else if(currentSort === "rating"){
+    sorted.sort((a,b)=>b.rating-a.rating);
+  }
+  // "default" (Featured) keeps original DOM order — no reordering needed
+  if(currentSort !== "default"){
+    sorted.forEach(d => grid.appendChild(d.el));
+  }
 }
-function updateBadge(){
-  const t=cart.reduce((s,x)=>s+x.qty,0);
-  const el=document.getElementById("cart-count");
-  el.textContent=t;
-  el.style.display=t?"flex":"none";
+
+function filterCategory(el, cat){
+  document.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));
+  el.classList.add("active");
+  currentFilter = cat;
+  applyProductView();
 }
+
+function sortProducts(){
+  currentSort = document.getElementById("sort-sel").value;
+  applyProductView();
+}
+
+function filterProducts(){
+  searchQ = document.getElementById("search-input").value.toLowerCase();
+  applyProductView();
+}
+
 function showToast(msg){
   const t=document.getElementById("toast");
   t.textContent=msg;
   t.classList.add("show");
   setTimeout(()=>t.classList.remove("show"),2500);
 }
-function viewDetails(id){
-  const p=products.find(x=>x.id===id);
-  alert(`${p.name}\n\nCategory: ${p.category}\nPrice: ₹${p.price.toLocaleString('en-IN')}\n${p.desc}\n\nRating: ${p.rating}/5\n\nFor full specifications, call: +91 9246607214 `);
-}
+
 function showCart(){
   document.getElementById("cart-drawer").style.display="block";
   renderCart();
@@ -573,54 +716,10 @@ function closeCart(){document.getElementById("cart-drawer").style.display="none"
 function renderCart(){
   const ci=document.getElementById("cart-items");
   const cf=document.getElementById("cart-footer");
-  if(!cart.length){
-    ci.innerHTML=`<div class="empty-cart"><i class="ti ti-shopping-cart"></i>Your cart is empty<br><span style="font-size:13px;display:block;margin-top:6px">Browse our products and add items</span></div>`;
-    cf.innerHTML="";return;
-  }
-  ci.innerHTML=cart.map(p=>`
-  <div class="cart-item">
-    <div class="cart-item-icon"><img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;padding:4px" onerror="this.style.display='none'"/></div>
-    <div class="cart-item-info">
-      <div class="cart-item-name">${p.name}</div>
-      <div class="cart-item-price">₹${p.price.toLocaleString('en-IN')} each</div>
-      <div class="qty-controls">
-        <button class="qty-btn" onclick="changeQty(${p.id},-1)">−</button>
-        <span class="qty-num">${p.qty}</span>
-        <button class="qty-btn" onclick="changeQty(${p.id},1)">+</button>
-        <button class="remove-btn" onclick="removeItem(${p.id})" title="Remove"><i class="ti ti-trash"></i></button>
-      </div>
-    </div>
-    <div class="cart-item-total">₹${(p.price*p.qty).toLocaleString('en-IN')}</div>
-  </div>`).join("");
-  const subtotal=cart.reduce((s,x)=>s+x.price*x.qty,0);
-  const ship=subtotal>=20000?0:499;
-  const total=subtotal+ship;
-  cf.innerHTML=`
-  <div class="total-row"><span>Subtotal</span><span>₹${subtotal.toLocaleString('en-IN')}</span></div>
-  <div class="total-row"><span>Delivery</span><span style="color:${ship===0?'var(--teal-600)':'inherit'}">${ship===0?'Free ✓':'₹'+ship}</span></div>
-  <div class="total-row grand" style="padding-top:12px;border-top:1.5px solid var(--border);margin-top:6px"><span>Total</span><span>₹${total.toLocaleString('en-IN')}</span></div>
-  ${ship>0?`<div class="free-delivery-note">Add ₹${(20000-subtotal).toLocaleString('en-IN')} more for free delivery</div>`:'<div class="free-delivery-note">✓ Free delivery applied!</div>'}
-  <button class="btn-primary" style="margin-top:14px;padding:13px;border-radius:var(--radius-md);font-size:14px;font-weight:600;width:100%" onclick="checkout()">Proceed to checkout →</button>
-  <button class="btn-outline" style="margin-top:9px;padding:11px;border-radius:var(--radius-md);font-size:13px;width:100%" onclick="closeCart()">Continue shopping</button>`;
+  ci.innerHTML=`<div class="empty-cart"><i class="ti ti-shopping-cart"></i>Your cart is empty<br><span style="font-size:13px;display:block;margin-top:6px">Browse our products and add items</span></div>`;
+  cf.innerHTML="";
 }
-function changeQty(id,d){
-  const i=cart.findIndex(x=>x.id===id);
-  cart[i].qty+=d;
-  if(cart[i].qty<=0) cart.splice(i,1);
-  updateBadge();renderCart();
-}
-function removeItem(id){cart=cart.filter(x=>x.id!==id);updateBadge();renderCart();}
-function checkout(){
-  const items=cart.map(x=>x.qty+'x '+x.name).join(', ');
-  alert('Order summary:\n'+items+'\n\nTo place your order, call:\n+91 92466 07214\n\nOr WhatsApp: wa.me/919246607214');
-}
-function filterCategory(el,cat){
-  document.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));
-  el.classList.add("active");
-  currentFilter=cat;renderProducts();
-}
-function sortProducts(){currentSort=document.getElementById("sort-sel").value;renderProducts();}
-function filterProducts(){searchQ=document.getElementById("search-input").value.toLowerCase();renderProducts();}
+
 function toggleSearch(){
   const w=document.getElementById("search-wrap");
   const vis=w.style.display==="flex";
@@ -631,7 +730,9 @@ function scrollToId(id){
   const el=document.getElementById(id);
   if(el) el.scrollIntoView({behavior:"smooth"});
 }
-renderProducts();
+
+// Initial pass in case filter/sort defaults ever change
+applyProductView();
 </script>
 </body>
 </html>

@@ -139,6 +139,7 @@ img{display:block}
 /* ===== PRODUCT CARD ===== */
 .pcard{background:var(--white);border-radius:var(--r-2xl);border:1.5px solid var(--border-light);overflow:hidden;display:flex;flex-direction:column;transition:all .25s;cursor:default}
 .pcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--navy-100)}
+.pcard.hidden-card{display:none}
 .pcard-img{position:relative;background:linear-gradient(135deg,var(--sand-100),var(--navy-50));height:200px;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .pcard-img img{width:100%;height:100%;object-fit:contain;padding:18px;transition:transform .35s}
 .pcard:hover .pcard-img img{transform:scale(1.06)}
@@ -162,11 +163,6 @@ img{display:block}
 .pcard-price{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--navy-800)}
 .pcard-mrp{font-family:'Outfit',sans-serif;font-size:13px;color:var(--text-muted);text-decoration:line-through}
 .pcard-off{font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;color:var(--teal-600);background:var(--teal-100);padding:2px 8px;border-radius:99px}
-.pcard-btns{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.btn-add{background:var(--navy-800);color:var(--white);border:none;padding:10px 0;border-radius:var(--r-sm);font-size:13px;font-weight:600;transition:all .2s;font-family:'Outfit',sans-serif}
-.btn-add:hover{background:var(--navy-700);transform:translateY(-1px)}
-.btn-det{background:transparent;color:var(--navy-700);border:1.5px solid var(--navy-100);padding:10px 0;border-radius:var(--r-sm);font-size:13px;font-weight:500;transition:all .2s;font-family:'Outfit',sans-serif}
-.btn-det:hover{background:var(--navy-50);border-color:var(--navy-300)}
 .no-res{text-align:center;padding:60px;color:var(--text-muted);display:none;font-family:'Outfit',sans-serif}
 .no-res i{font-size:48px;display:block;margin-bottom:12px;color:var(--navy-100)}
 
@@ -212,34 +208,6 @@ img{display:block}
 .footer{background:var(--navy-950);border-top:1px solid rgba(255,255,255,0.06);padding:22px 28px;text-align:center}
 .footer p{font-family:'Outfit',sans-serif;color:rgba(255,255,255,0.3);font-size:12px;letter-spacing:.3px}
 
-/* ===== CART DRAWER ===== */
-.overlay{display:none;position:fixed;inset:0;z-index:600;background:rgba(10,15,30,.6);backdrop-filter:blur(2px)}
-.drawer{position:absolute;right:0;top:0;bottom:0;width:min(400px,100%);background:var(--white);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(0,0,0,.15)}
-.drawer-hd{padding:20px 22px;border-bottom:1.5px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--navy-900)}
-.drawer-hd span{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--white)}
-.d-close{background:rgba(255,255,255,0.08);border:none;font-size:18px;color:rgba(255,255,255,0.6);cursor:pointer;padding:6px 8px;line-height:1;border-radius:8px;transition:all .2s}
-.d-close:hover{background:rgba(255,255,255,0.15);color:var(--white)}
-.drawer-body{flex:1;overflow-y:auto;padding:18px 22px}
-.drawer-foot{padding:18px 22px;border-top:1.5px solid var(--border-light);background:var(--sand-50)}
-.citem{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--border-light)}
-.citem-img{width:54px;height:54px;background:var(--sand-100);border-radius:var(--r-sm);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:1px solid var(--sand-200)}
-.citem-img img{width:100%;height:100%;object-fit:contain;padding:4px}
-.citem-info{flex:1;min-width:0}
-.citem-name{font-family:'Outfit',sans-serif;font-weight:600;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px;color:var(--navy-900)}
-.citem-unit{font-family:'Outfit',sans-serif;font-size:12px;color:var(--text-muted)}
-.qty-row{display:flex;align-items:center;gap:10px;margin-top:9px}
-.qbtn{width:28px;height:28px;border-radius:7px;border:1.5px solid var(--border);background:var(--white);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;line-height:1;transition:all .2s;color:var(--navy-800)}
-.qbtn:hover{background:var(--navy-50);border-color:var(--navy-300)}
-.qnum{font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;min-width:20px;text-align:center;color:var(--navy-900)}
-.rmv-btn{margin-left:auto;background:none;border:none;cursor:pointer;color:var(--text-muted);font-size:17px;transition:color .2s}
-.rmv-btn:hover{color:#ef4444}
-.citem-tot{font-family:'Playfair Display',serif;font-weight:700;font-size:15px;color:var(--navy-800);flex-shrink:0}
-.trow{display:flex;justify-content:space-between;font-family:'Outfit',sans-serif;font-size:14px;margin-bottom:9px;color:var(--text-secondary)}
-.trow.grand{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--navy-900);padding-top:12px;border-top:1.5px solid var(--border);margin-top:6px}
-.free-note{background:var(--teal-100);border:1px solid #99f6e4;border-radius:var(--r-sm);padding:9px 14px;font-family:'Outfit',sans-serif;font-size:12px;color:var(--teal-600);text-align:center;margin:12px 0;font-weight:500}
-.empty-cart{text-align:center;padding:52px 20px;color:var(--text-muted);font-family:'Outfit',sans-serif}
-.empty-cart i{font-size:52px;display:block;margin-bottom:14px;color:var(--navy-100)}
-
 /* ===== TOAST ===== */
 .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--navy-800);color:var(--white);padding:11px 22px;border-radius:var(--r-sm);font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;z-index:1000;transition:transform .3s;pointer-events:none;white-space:nowrap;border-left:3px solid var(--amber-400);box-shadow:var(--shadow-md)}
 .toast.show{transform:translateX(-50%) translateY(0)}
@@ -266,18 +234,9 @@ img{display:block}
   .promo{font-size:12px;padding:9px 16px}
   .nav-inner{padding:0 16px}
 }
-@media(max-width:400px){
-  .pcard-btns{grid-template-columns:1fr}
-}
 </style>
 </head>
 <body>
-
-<!-- PROMO -->
-<div class="promo">
-  <i class="ti ti-discount"></i>
-  Free delivery on orders above ₹15,000 &nbsp;·&nbsp; Call <strong>+91 92466 07214</strong> for installation quotes
-</div>
 
 <!-- HEADER -->
 <header class="header">
@@ -336,7 +295,34 @@ img{display:block}
         <div class="hero-stat"><div class="val">500+</div><div class="lbl">Service centres</div></div>
       </div>
     </div>
-    <div class="hero-visual" id="hero-visual"></div>
+
+    <!-- Hero preview cards are now static HTML, mirroring the first 3 products below. -->
+    <div class="hero-visual" id="hero-visual">
+      <div class="hero-img-card">
+        <img src="../assets/domestic-pump1.jpeg" alt="Home Water Pump" onerror="this.style.opacity='0.25'"/>
+        <div>
+          <div class="hero-card-title">Home Water Pump</div>
+          <div class="hero-card-sub">Continuous household water supply, 0.5HP–1HP</div>
+        </div>
+        <div class="hero-card-price">₹13,999</div>
+      </div>
+      <div class="hero-img-card">
+        <img src="../assets/domestic-pump2.jpg" alt="Booster Pump" onerror="this.style.opacity='0.25'"/>
+        <div>
+          <div class="hero-card-title">Booster Pump</div>
+          <div class="hero-card-sub">High-pressure boost for apartments &amp; buildings</div>
+        </div>
+        <div class="hero-card-price">₹18,499</div>
+      </div>
+      <div class="hero-img-card">
+        <img src="../assets/domestic-pump3.jpg" alt="Silent Pump" onerror="this.style.opacity='0.25'"/>
+        <div>
+          <div class="hero-card-title">Silent Pump</div>
+          <div class="hero-card-sub">Under 42dB — ideal for indoor installation</div>
+        </div>
+        <div class="hero-card-price">₹16,999</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -377,7 +363,151 @@ img{display:block}
     <button class="chip" onclick="doFilter(this,'pressure')">Pressure pump</button>
     <button class="chip" onclick="doFilter(this,'inline')">Inline pump</button>
   </div>
-  <div class="pgrid" id="pgrid"></div>
+
+  <!-- Product cards are static HTML below. Each card carries data-* attributes
+       (data-category, data-price, data-rating, data-name) so the filter/sort/search
+       script can read product details directly from the markup instead of a JS array. -->
+  <div class="pgrid" id="pgrid">
+
+    <div class="pcard" data-category="home" data-price="13999" data-rating="5" data-name="Home Water Pump">
+      <div class="pcard-img">
+        <button class="pcard-wishlist" onclick="toggleWish(this)" aria-label="Wishlist">
+          <i class="ti ti-heart"></i>
+        </button>
+        <img src="../assets/domestic-pump1.jpeg" alt="Home Water Pump" loading="lazy" onerror="this.style.opacity='0.25'"/>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-cat">home</div>
+        <div class="pcard-name">Home Water Pump</div>
+        <div class="pcard-desc">Continuous household water supply, 0.5HP–1HP</div>
+        <div class="pcard-stars">
+          <span class="star-txt">★★★★★</span>
+          <span class="rev-cnt">(0)</span>
+        </div>
+        <div class="pcard-price-row">
+          <span class="pcard-price">₹13,999</span>
+          <span class="pcard-mrp">₹16,999</span>
+          <span class="pcard-off">18% off</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-category="booster" data-price="18499" data-rating="4" data-name="Booster Pump">
+      <div class="pcard-img">
+        <button class="pcard-wishlist" onclick="toggleWish(this)" aria-label="Wishlist">
+          <i class="ti ti-heart"></i>
+        </button>
+        <img src="../assets/domestic-pump2.jpg" alt="Booster Pump" loading="lazy" onerror="this.style.opacity='0.25'"/>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-cat">booster</div>
+        <div class="pcard-name">Booster Pump</div>
+        <div class="pcard-desc">High-pressure boost for apartments &amp; buildings</div>
+        <div class="pcard-stars">
+          <span class="star-txt">★★★★☆</span>
+          <span class="rev-cnt">(0)</span>
+        </div>
+        <div class="pcard-price-row">
+          <span class="pcard-price">₹18,499</span>
+          <span class="pcard-mrp">₹22,000</span>
+          <span class="pcard-off">16% off</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-category="silent" data-price="16999" data-rating="5" data-name="Silent Pump">
+      <div class="pcard-img">
+        <button class="pcard-wishlist" onclick="toggleWish(this)" aria-label="Wishlist">
+          <i class="ti ti-heart"></i>
+        </button>
+        <img src="../assets/domestic-pump3.jpg" alt="Silent Pump" loading="lazy" onerror="this.style.opacity='0.25'"/>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-cat">silent</div>
+        <div class="pcard-name">Silent Pump</div>
+        <div class="pcard-desc">Under 42dB — ideal for indoor installation</div>
+        <div class="pcard-stars">
+          <span class="star-txt">★★★★★</span>
+          <span class="rev-cnt">(0)</span>
+        </div>
+        <div class="pcard-price-row">
+          <span class="pcard-price">₹16,999</span>
+          <span class="pcard-mrp">₹19,999</span>
+          <span class="pcard-off">15% off</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-category="pressure" data-price="21499" data-rating="4" data-name="Pressure Pump">
+      <div class="pcard-img">
+        <button class="pcard-wishlist" onclick="toggleWish(this)" aria-label="Wishlist">
+          <i class="ti ti-heart"></i>
+        </button>
+        <img src="../assets/domestic-pump4.jpeg" alt="Pressure Pump" loading="lazy" onerror="this.style.opacity='0.25'"/>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-cat">pressure</div>
+        <div class="pcard-name">Pressure Pump</div>
+        <div class="pcard-desc">Constant pressure system for multi-storey homes</div>
+        <div class="pcard-stars">
+          <span class="star-txt">★★★★☆</span>
+          <span class="rev-cnt">(0)</span>
+        </div>
+        <div class="pcard-price-row">
+          <span class="pcard-price">₹21,499</span>
+          <span class="pcard-mrp">₹25,000</span>
+          <span class="pcard-off">14% off</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-category="inline" data-price="14999" data-rating="5" data-name="Inline Pump">
+      <div class="pcard-img">
+        <button class="pcard-wishlist" onclick="toggleWish(this)" aria-label="Wishlist">
+          <i class="ti ti-heart"></i>
+        </button>
+        <img src="../assets/domestic-pump5.jpg" alt="Inline Pump" loading="lazy" onerror="this.style.opacity='0.25'"/>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-cat">inline</div>
+        <div class="pcard-name">Inline Pump</div>
+        <div class="pcard-desc">Space-saving inline design for tight spaces</div>
+        <div class="pcard-stars">
+          <span class="star-txt">★★★★★</span>
+          <span class="rev-cnt">(0)</span>
+        </div>
+        <div class="pcard-price-row">
+          <span class="pcard-price">₹14,999</span>
+          <span class="pcard-mrp">₹17,500</span>
+          <span class="pcard-off">14% off</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-category="home" data-price="9499" data-rating="4" data-name="Mini Home Pump">
+      <div class="pcard-img">
+        <button class="pcard-wishlist" onclick="toggleWish(this)" aria-label="Wishlist">
+          <i class="ti ti-heart"></i>
+        </button>
+        <img src="../assets/domestic-pump6.jpg" alt="Mini Home Pump" loading="lazy" onerror="this.style.opacity='0.25'"/>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-cat">home</div>
+        <div class="pcard-name">Mini Home Pump</div>
+        <div class="pcard-desc">Compact single-phase pump for small homes</div>
+        <div class="pcard-stars">
+          <span class="star-txt">★★★★☆</span>
+          <span class="rev-cnt">(0)</span>
+        </div>
+        <div class="pcard-price-row">
+          <span class="pcard-price">₹9,499</span>
+          <span class="pcard-mrp">₹11,999</span>
+          <span class="pcard-off">21% off</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
   <div class="no-res" id="no-res"><i class="ti ti-search-off"></i>No products match your search.</div>
 </section>
 
@@ -477,165 +607,78 @@ img{display:block}
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-<!-- CART DRAWER -->
-<div class="overlay" id="cart-overlay" onclick="closeCart()">
-  <div class="drawer" onclick="event.stopPropagation()">
-    <div class="drawer-hd">
-      <span>Your cart</span>
-      <button class="d-close" onclick="closeCart()" aria-label="Close"><i class="ti ti-x"></i></button>
-    </div>
-    <div class="drawer-body" id="cart-body"></div>
-    <div class="drawer-foot" id="cart-foot"></div>
-  </div>
-</div>
-
 <script>
-const products=[
-  {id:1,name:"Home Water Pump",   cat:"home",     price:13999,mrp:16999,rating:5,reviews:0,img:"../assets/domestic-pump1.jpeg",desc:"Continuous household water supply, 0.5HP–1HP"},
-  {id:2,name:"Booster Pump",      cat:"booster",  price:18499,mrp:22000,rating:4,reviews:0,img:"../assets/domestic-pump2.jpg",desc:"High-pressure boost for apartments & buildings"},
-  {id:3,name:"Silent Pump",       cat:"silent",   price:16999,mrp:19999,rating:5,reviews:0,img:"../assets/domestic-pump3.jpg",desc:"Under 42dB — ideal for indoor installation"},
-  {id:4,name:"Pressure Pump",     cat:"pressure", price:21499,mrp:25000,rating:4,reviews:0,img:"../assets/domestic-pump4.jpeg",desc:"Constant pressure system for multi-storey homes"},
-  {id:5,name:"Inline Pump",       cat:"inline",   price:14999,mrp:17500,rating:5,reviews:0,img:"../assets/domestic-pump5.jpg",desc:"Space-saving inline design for tight spaces"},
-  {id:6,name:"Mini Home Pump",    cat:"home",     price:9499, mrp:11999,rating:4,reviews:0,img:"../assets/domestic-pump6.jpg",desc:"Compact single-phase pump for small homes"},
-];
+/*
+  Products now live as static HTML cards inside #pgrid (see markup above), and the
+  hero preview cards are static HTML too. Each .pcard carries data-category /
+  data-price / data-rating / data-name attributes. The functions below read those
+  attributes straight from the DOM to power filtering, sorting and search —
+  no JS product array involved. Wishlist (heart) toggling still works per-card.
+*/
 
-let cart=[],filt="all",sort="default",q="";
+let filt="all", sort="default", q="";
 
-function stars(r){return"★".repeat(r)+"☆".repeat(5-r)}
-function discount(p,m){return Math.round((1-p/m)*100)}
-
-function render(){
-  let list=[...products];
-  if(filt!=="all") list=list.filter(p=>p.cat===filt);
-  if(q) list=list.filter(p=>p.name.toLowerCase().includes(q)||p.cat.includes(q)||p.desc.toLowerCase().includes(q));
-  if(sort==="price-asc") list.sort((a,b)=>a.price-b.price);
-  else if(sort==="price-desc") list.sort((a,b)=>b.price-a.price);
-  else if(sort==="rating") list.sort((a,b)=>b.rating-a.rating||(b.reviews-a.reviews));
-  const g=document.getElementById("pgrid");
-  const nr=document.getElementById("no-res");
-  if(!list.length){g.innerHTML="";nr.style.display="block";return}
-  nr.style.display="none";
-  g.innerHTML=list.map(p=>`
-  <div class="pcard">
-    <div class="pcard-img">
-      ${p.badge?`<span class="pcard-badge ${p.bc}">${p.badge}</span>`:""}
-      <button class="pcard-wishlist" id="wl-${p.id}" onclick="toggleWish(${p.id})" aria-label="Wishlist">
-        <i class="ti ti-heart"></i>
-      </button>
-      <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.opacity='0.25'"/>
-    </div>
-    <div class="pcard-body">
-      <div class="pcard-cat">${p.cat.replace(/-/g," ")}</div>
-      <div class="pcard-name">${p.name}</div>
-      <div class="pcard-desc">${p.desc}</div>
-      <div class="pcard-stars">
-        <span class="star-txt">${stars(p.rating)}</span>
-        <span class="rev-cnt">(${p.reviews})</span>
-      </div>
-      <div class="pcard-price-row">
-        <span class="pcard-price">₹${p.price.toLocaleString("en-IN")}</span>
-        <span class="pcard-mrp">₹${p.mrp.toLocaleString("en-IN")}</span>
-        <span class="pcard-off">${discount(p.price,p.mrp)}% off</span>
-      </div>
-      <div class="pcard-btns">
-        <!-- <button class="btn-add" onclick="addCart(${p.id})">Add to cart</button> -->
-        <button class="btn-det" onclick="details(${p.id})">Details</button>
-      </div>
-    </div>
-  </div>`).join("");
-
-  const hv=document.getElementById("hero-visual");
-  if(hv&&products.length){
-    hv.innerHTML=products.slice(0,3).map(p=>`
-    <div class="hero-img-card">
-      <img src="${p.img}" alt="${p.name}" onerror="this.style.opacity='0.25'"/>
-      <div>
-        <div class="hero-card-title">${p.name}</div>
-        <div class="hero-card-sub">${p.desc}</div>
-      </div>
-      <div class="hero-card-price">₹${p.price.toLocaleString("en-IN")}</div>
-    </div>`).join("");
-  }
+function toggleWish(btn){
+  btn.classList.toggle("liked");
 }
 
-function toggleWish(id){
-  const btn=document.getElementById("wl-"+id);
-  if(btn) btn.classList.toggle("liked");
-}
-function addCart(id){
-  const p=products.find(x=>x.id===id);
-  const ex=cart.find(x=>x.id===id);
-  if(ex) ex.qty++; else cart.push({...p,qty:1});
-  updateDot(); toast(p.name+" added to cart");
-}
-function updateDot(){
-  const t=cart.reduce((s,x)=>s+x.qty,0);
-  const el=document.getElementById("cart-dot");
-  el.textContent=t; el.style.display=t?"flex":"none";
-}
 function toast(msg){
   const t=document.getElementById("toast");
   t.textContent=msg; t.classList.add("show");
   setTimeout(()=>t.classList.remove("show"),2500);
 }
-function details(id){
-  const p=products.find(x=>x.id===id);
-  alert(`${p.name}\n\nCategory: ${p.cat}\nPrice: ₹${p.price.toLocaleString("en-IN")} (MRP ₹${p.mrp.toLocaleString("en-IN")})\n${p.desc}\nRating: ${p.rating}/5 (${p.reviews} reviews)\n\nFor specs & installation, call +91 9246607214 `);
+
+function getCardData(card){
+  return {
+    el: card,
+    category: card.dataset.category,
+    price: parseFloat(card.dataset.price),
+    rating: parseFloat(card.dataset.rating),
+    name: card.dataset.name || ""
+  };
 }
-function openCart(){
-  document.getElementById("cart-overlay").style.display="block";
-  renderCart();
-}
-function closeCart(){document.getElementById("cart-overlay").style.display="none"}
-function renderCart(){
-  const cb=document.getElementById("cart-body");
-  const cf=document.getElementById("cart-foot");
-  if(!cart.length){
-    cb.innerHTML=`<div class="empty-cart"><i class="ti ti-shopping-cart"></i>Your cart is empty<br><span style="font-size:13px;display:block;margin-top:6px">Add some pumps to get started</span></div>`;
-    cf.innerHTML="";return;
+
+function applyProductView(){
+  const grid=document.getElementById("pgrid");
+  const noRes=document.getElementById("no-res");
+  const cards=Array.from(grid.querySelectorAll(".pcard"));
+  const data=cards.map(getCardData);
+
+  let anyVisible=false;
+  data.forEach(d=>{
+    const matchesCategory = filt==="all" || d.category===filt;
+    const haystack=(d.name+" "+d.category).toLowerCase();
+    const matchesSearch = !q || haystack.includes(q);
+    const visible = matchesCategory && matchesSearch;
+    d.el.classList.toggle("hidden-card", !visible);
+    if(visible) anyVisible=true;
+  });
+
+  noRes.style.display = anyVisible ? "none" : "block";
+
+  let sorted=[...data];
+  if(sort==="price-asc") sorted.sort((a,b)=>a.price-b.price);
+  else if(sort==="price-desc") sorted.sort((a,b)=>b.price-a.price);
+  else if(sort==="rating") sorted.sort((a,b)=>b.rating-a.rating);
+  if(sort!=="default"){
+    sorted.forEach(d=>grid.appendChild(d.el));
   }
-  cb.innerHTML=cart.map(p=>`
-  <div class="citem">
-    <div class="citem-img"><img src="${p.img}" alt="${p.name}" onerror="this.style.opacity='0.25'"/></div>
-    <div class="citem-info">
-      <div class="citem-name">${p.name}</div>
-      <div class="citem-unit">₹${p.price.toLocaleString("en-IN")} each</div>
-      <div class="qty-row">
-        <button class="qbtn" onclick="chQty(${p.id},-1)">−</button>
-        <span class="qnum">${p.qty}</span>
-        <button class="qbtn" onclick="chQty(${p.id},1)">+</button>
-        <button class="rmv-btn" onclick="rmItem(${p.id})" aria-label="Remove"><i class="ti ti-trash"></i></button>
-      </div>
-    </div>
-    <div class="citem-tot">₹${(p.price*p.qty).toLocaleString("en-IN")}</div>
-  </div>`).join("");
-  const sub=cart.reduce((s,x)=>s+x.price*x.qty,0);
-  const ship=sub>=15000?0:399;
-  cf.innerHTML=`
-  <div class="trow"><span>Subtotal</span><span>₹${sub.toLocaleString("en-IN")}</span></div>
-  <div class="trow"><span>Delivery</span><span style="color:${ship===0?"var(--teal-600)":"inherit"}">${ship===0?"Free ✓":"₹"+ship}</span></div>
-  <div class="trow grand"><span>Total</span><span>₹${(sub+ship).toLocaleString("en-IN")}</span></div>
-  ${ship>0?`<div class="free-note">Add ₹${(15000-sub).toLocaleString("en-IN")} more for free delivery</div>`:`<div class="free-note">✓ Free delivery applied!</div>`}
-  <button class="btn-submit" style="border-radius:var(--r-sm)" onclick="checkout()">Proceed to checkout →</button>
-  <button class="btn-det" style="width:100%;margin-top:9px;padding:11px;border-radius:var(--r-sm);font-size:13px" onclick="closeCart()">Continue shopping</button>`;
 }
-function chQty(id,d){
-  const i=cart.findIndex(x=>x.id===id);
-  cart[i].qty+=d;
-  if(cart[i].qty<=0) cart.splice(i,1);
-  updateDot();renderCart();
-}
-function rmItem(id){cart=cart.filter(x=>x.id!==id);updateDot();renderCart();}
-function checkout(){
-  const items=cart.map(x=>x.qty+"x "+x.name).join(", ");
-  alert("Order summary:\n"+items+"\n\nTo confirm, call:\n+91 9246607214 \nor WhatsApp: wa.me/9246607214 ");
-}
+
 function doFilter(el,cat){
   document.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));
-  el.classList.add("active");filt=cat;render();
+  el.classList.add("active");
+  filt=cat;
+  applyProductView();
 }
-function doSort(){sort=document.getElementById("sort-sel").value;render();}
-function doSearch(){q=document.getElementById("search-input").value.toLowerCase();render();}
+function doSort(){
+  sort=document.getElementById("sort-sel").value;
+  applyProductView();
+}
+function doSearch(){
+  q=document.getElementById("search-input").value.toLowerCase();
+  applyProductView();
+}
 function toggleSearch(){
   const w=document.getElementById("search-wrap");
   const on=w.style.display==="flex";
@@ -646,7 +689,8 @@ function goTo(id){
   const el=document.getElementById(id);
   if(el) el.scrollIntoView({behavior:"smooth"});
 }
-render();
+
+applyProductView();
 </script>
 </body>
 </html>
