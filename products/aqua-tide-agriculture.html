@@ -1,74 +1,738 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aqua-Tide Agriculture Products</title>        
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Aqua Tide Agriculture — Pump Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* Core palette — deep navy + warm amber + sand */
+  --navy-950:#0a0f1e;
+  --navy-900:#0d1426;
+  --navy-800:#162040;
+  --navy-700:#1e2f5a;
+  --navy-600:#253870;
+  --navy-500:#2e4490;
+  --navy-300:#6a82b8;
+  --navy-100:#c8d2e8;
+  --navy-50:#edf0f7;
 
-    <style>
-        body {
-            font-family: Arial;
-            background: #f5f5f5;
-            margin: 20px;
-        }
+  --amber-600:#d97706;
+  --amber-500:#f59e0b;
+  --amber-400:#fbbf24;
+  --amber-300:#fcd34d;
+  --amber-100:#fef3c7;
+  --amber-50:#fffbeb;
 
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+  --sand-900:#4a3728;
+  --sand-700:#7c5c43;
+  --sand-400:#c4a882;
+  --sand-200:#e8d9c8;
+  --sand-100:#f4ede4;
+  --sand-50:#faf7f4;
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
+  --teal-600:#0d7d6e;
+  --teal-400:#14b8a6;
+  --teal-100:#ccfbf1;
 
-        .product-card {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
+  --white:#ffffff;
+  --text-primary:#0d1426;
+  --text-secondary:#3d4f72;
+  --text-muted:#7889a6;
+  --border:#d8dfe8;
+  --border-light:#edf0f7;
 
-        .product-card img {
-            width: 180px;
-        }
+  --shadow-sm:0 1px 4px rgba(13,20,38,.07);
+  --shadow-md:0 6px 24px rgba(13,20,38,.12);
+  --shadow-lg:0 16px 48px rgba(13,20,38,.16);
+  --radius-sm:8px;
+  --radius-md:12px;
+  --radius-lg:16px;
+  --radius-xl:22px;
+}
 
-        .btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 12px;
-            background: green;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-    </style>
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--sand-50);color:var(--text-primary);overflow-x:hidden;font-size:15px;line-height:1.6}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;line-height:1.2}
+a{text-decoration:none;color:inherit}
+button{font-family:'Outfit',sans-serif;cursor:pointer}
+input,select,textarea{font-family:'Outfit',sans-serif}
+
+/* ─── HEADER ─── */
+.header{background:var(--navy-700);position:sticky;top:0;z-index:200;box-shadow:0 2px 20px rgba(0,0,0,0.3)}
+.header-top{max-width:1300px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--amber-400),var(--amber-600));border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(245,158,11,.4)}
+.logo-icon i{color:var(--navy-900);font-size:22px}
+.logo-text{color:var(--white);font-family:'Playfair Display',serif;font-size:20px;font-weight:700;line-height:1}
+.logo-sub{color:var(--navy-300);font-family:'Outfit',sans-serif;font-size:11px;font-weight:400;margin-top:3px;letter-spacing:.5px;text-transform:uppercase}
+.header-search{flex:1;max-width:360px;display:none}
+.header-search input{width:100%;padding:9px 16px;border-radius:var(--radius-sm);border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:var(--white);font-size:13px;outline:none;transition:all .2s}
+.header-search input::placeholder{color:rgba(255,255,255,0.4)}
+.header-search input:focus{border-color:var(--amber-400);background:rgba(255,255,255,0.12)}
+.header-actions{display:flex;align-items:center;gap:12px}
+.icon-btn{background:none;border:none;color:var(--navy-300);font-size:22px;padding:6px;border-radius:var(--radius-sm);transition:color .2s,background .2s;position:relative}
+.icon-btn:hover{color:var(--white);background:rgba(255,255,255,0.08)}
+.cart-badge{position:absolute;top:-4px;right:-4px;background:var(--amber-500);color:var(--navy-900);font-size:10px;min-width:16px;height:16px;border-radius:99px;display:none;align-items:center;justify-content:center;padding:0 3px;font-weight:700}
+.btn-advice{background:linear-gradient(135deg,var(--amber-500),var(--amber-600));border:none;color:var(--navy-900);padding:9px 20px;border-radius:var(--radius-sm);font-size:13px;font-weight:600;transition:all .2s;letter-spacing:.2px}
+.btn-advice:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(245,158,11,.4)}
+.header-nav{background:var(--navy-800);border-top:1px solid rgba(255,255,255,0.06)}
+.header-nav-inner{max-width:1300px;margin:0 auto;padding:0 28px;display:flex;gap:6px;overflow-x:auto}
+.nav-link{padding:11px 20px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;color:var(--navy-300);white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;cursor:pointer;letter-spacing:.2px}
+.nav-link:hover,.nav-link.active{color:var(--amber-400);border-bottom-color:var(--amber-400)}
+
+/* ─── PROMO ─── */
+.promo-bar{background:linear-gradient(90deg,var(--amber-600),var(--amber-500));padding:10px 24px;text-align:center;font-size:13px;font-weight:600;color:var(--navy-900);letter-spacing:.3px}
+.promo-bar i{margin:0 6px;vertical-align:middle}
+
+/* ─── HERO ─── */
+.hero{background:var(--navy-700);padding:72px 28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero::after{content:'';position:absolute;top:-120px;right:-120px;width:500px;height:500px;background:radial-gradient(circle,rgba(245,158,11,.12) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.25);padding:6px 16px;border-radius:99px;margin-bottom:22px}
+.hero-badge i{color:var(--amber-400);font-size:13px}
+.hero-badge span{color:var(--amber-300);font-family:'Outfit',sans-serif;font-size:12px;font-weight:500;letter-spacing:.5px;text-transform:uppercase}
+.hero h1{color:var(--white);font-size:clamp(30px,4vw,52px);font-weight:800;margin-bottom:18px;line-height:1.15}
+.hero h1 em{color:var(--amber-400);font-style:normal}
+.hero p{color:var(--navy-300);font-family:'Outfit',sans-serif;font-size:15px;line-height:1.75;margin-bottom:32px;max-width:480px;font-weight:400}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.btn-primary-hero{background:linear-gradient(135deg,var(--amber-400),var(--amber-600));color:var(--navy-900);border:none;padding:13px 30px;border-radius:var(--radius-md);font-size:14px;font-weight:700;transition:all .25s;font-family:'Outfit',sans-serif;letter-spacing:.3px;box-shadow:0 4px 16px rgba(245,158,11,.35)}
+.btn-primary-hero:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,158,11,.45)}
+.btn-ghost-hero{background:transparent;border:1.5px solid rgba(255,255,255,0.2);color:var(--white);padding:13px 26px;border-radius:var(--radius-md);font-size:14px;font-weight:500;transition:all .25s;font-family:'Outfit',sans-serif}
+.btn-ghost-hero:hover{border-color:var(--amber-400);color:var(--amber-400);background:rgba(245,158,11,.06)}
+.hero-stats{display:flex;gap:0;flex-wrap:wrap;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-lg);overflow:hidden}
+.stat-item{flex:1;min-width:80px;text-align:center;padding:16px 12px;border-right:1px solid rgba(255,255,255,0.06)}
+.stat-item:last-child{border-right:none}
+.stat-item .num{color:var(--amber-400);font-family:'Playfair Display',serif;font-size:22px;font-weight:700}
+.stat-item .label{color:var(--navy-300);font-family:'Outfit',sans-serif;font-size:11px;margin-top:3px;letter-spacing:.3px}
+.hero-cards{display:flex;flex-direction:column;gap:14px}
+.hero-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:var(--radius-lg);padding:20px 22px;display:flex;align-items:center;gap:18px;transition:all .25s;cursor:default}
+.hero-card:hover{background:rgba(255,255,255,0.08);border-color:rgba(245,158,11,.25);transform:translateX(4px)}
+.hero-card-icon{width:48px;height:48px;background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(245,158,11,.05));border:1px solid rgba(245,158,11,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hero-card-icon i{color:var(--amber-400);font-size:22px}
+.hero-card-title{color:var(--white);font-family:'Outfit',sans-serif;font-weight:600;font-size:14px}
+.hero-card-sub{color:var(--navy-300);font-family:'Outfit',sans-serif;font-size:12px;margin-top:3px}
+
+/* ─── PRODUCTS ─── */
+.products-section{max-width:1300px;margin:0 auto;padding:64px 28px}
+.section-header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.section-title{font-size:30px;font-weight:700;color:var(--navy-900)}
+.section-sub{color:var(--text-muted);font-family:'Outfit',sans-serif;font-size:14px;margin-top:5px}
+.sort-wrap{display:flex;align-items:center;gap:10px}
+.sort-wrap label{font-size:13px;color:var(--text-muted);font-family:'Outfit',sans-serif}
+.sort-wrap select{padding:8px 14px;border-radius:var(--radius-sm);border:1.5px solid var(--border);background:var(--white);font-size:13px;color:var(--text-primary);outline:none;cursor:pointer;font-family:'Outfit',sans-serif;transition:border-color .2s}
+.sort-wrap select:focus{border-color:var(--navy-600)}
+.filter-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px}
+.chip{display:inline-block;padding:7px 18px;border-radius:99px;font-size:13px;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--text-secondary);transition:all .2s;white-space:nowrap;font-weight:500;font-family:'Outfit',sans-serif}
+.chip:hover{border-color:var(--navy-600);color:var(--navy-700)}
+.chip.active{background:var(--navy-800);color:var(--white);border-color:var(--navy-800)}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:22px}
+
+/* ─── PRODUCT CARD ─── */
+.product-card{background:var(--white);border-radius:var(--radius-xl);border:1.5px solid var(--border-light);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s}
+.product-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--navy-100)}
+.product-card.hidden-card{display:none}
+.card-img-wrap{background:linear-gradient(135deg,var(--sand-100),var(--navy-50));padding:32px 24px;position:relative;display:flex;align-items:center;justify-content:center;min-height:175px}
+.card-img-wrap .icon-circle{width:92px;height:92px;background:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid var(--sand-200);box-shadow:var(--shadow-sm)}
+.card-img-wrap .icon-circle i{color:var(--navy-700);font-size:40px}
+.card-img{width:100%;height:100%;object-fit:contain;padding:8px;transition:transform .3s}
+.product-card:hover .card-img{transform:scale(1.05)}
+.card-badge{position:absolute;top:12px;left:12px;font-size:11px;padding:4px 11px;border-radius:99px;font-weight:600;font-family:'Outfit',sans-serif;letter-spacing:.3px}
+.badge-green{background:var(--teal-100);color:var(--teal-600)}
+.badge-amber{background:var(--amber-100);color:var(--amber-600)}
+.badge-blue{background:var(--navy-50);color:var(--navy-700)}
+.card-body{padding:20px;display:flex;flex-direction:column;flex:1}
+.card-category{font-family:'Outfit',sans-serif;font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;font-weight:500}
+.card-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;margin-bottom:6px;line-height:1.3;color:var(--navy-900)}
+.card-desc{font-family:'Outfit',sans-serif;font-size:12.5px;color:var(--text-muted);line-height:1.55;margin-bottom:12px;flex:1}
+.card-stars{display:flex;align-items:center;gap:6px;margin-bottom:14px}
+.stars-text{color:var(--amber-500);font-size:12px}
+.reviews-count{font-family:'Outfit',sans-serif;font-size:11px;color:var(--text-muted)}
+.card-price{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--navy-800);margin-bottom:16px}
+.card-btns{display:grid;grid-template-columns:1fr;gap:9px}
+.btn-primary{background:var(--navy-800);color:var(--white);border:none;padding:10px 0;border-radius:var(--radius-sm);font-size:13px;font-weight:600;transition:all .2s;width:100%;font-family:'Outfit',sans-serif}
+.btn-primary:hover{background:var(--navy-700);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--navy-700);border:1.5px solid var(--navy-100);padding:10px 0;border-radius:var(--radius-sm);font-size:13px;font-weight:500;transition:all .2s;width:100%;font-family:'Outfit',sans-serif}
+.btn-outline:hover{background:var(--navy-50);border-color:var(--navy-300)}
+.no-results{text-align:center;padding:56px;color:var(--text-muted);display:none;font-family:'Outfit',sans-serif}
+.no-results i{font-size:44px;display:block;margin-bottom:12px;color:var(--navy-100)}
+
+/* ─── FEATURES ─── */
+.features-section{background:var(--navy-900);padding:72px 28px;position:relative;overflow:hidden}
+.features-section::before{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(245,158,11,.08) 0%,transparent 70%);pointer-events:none}
+.features-inner{max-width:1300px;margin:0 auto;position:relative;z-index:1}
+.features-header{text-align:center;margin-bottom:44px}
+.features-header h2{font-size:32px;font-weight:700;margin-bottom:10px;color:var(--white)}
+.features-header p{color:var(--navy-300);font-family:'Outfit',sans-serif;font-size:14px;max-width:420px;margin:0 auto}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.feature-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-lg);padding:26px 22px;transition:all .25s;text-align:center}
+.feature-card:hover{border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.05);transform:translateY(-3px)}
+.feature-icon-wrap{width:54px;height:54px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.feature-icon-wrap i{color:var(--amber-400);font-size:24px}
+.feature-card h3{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;margin-bottom:8px;color:var(--white)}
+.feature-card p{font-family:'Outfit',sans-serif;font-size:13px;color:var(--navy-300);line-height:1.6}
+
+/* ─── CONTACT ─── */
+.contact-section{background:var(--sand-50);padding:72px 28px;border-top:1px solid var(--sand-200)}
+.contact-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.contact-left h2{font-family:'Playfair Display',serif;color:var(--navy-900);font-size:32px;font-weight:700;margin-bottom:12px}
+.contact-left p{font-family:'Outfit',sans-serif;color:var(--text-secondary);font-size:14px;line-height:1.75;margin-bottom:28px}
+.contact-links{display:flex;flex-direction:column;gap:16px}
+.contact-link{display:flex;align-items:center;gap:12px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;color:var(--navy-700);transition:color .2s}
+.contact-link:hover{color:var(--amber-600)}
+.contact-link-icon{width:36px;height:36px;background:var(--navy-50);border:1px solid var(--navy-100);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+.contact-link:hover .contact-link-icon{background:var(--amber-50);border-color:var(--amber-200)}
+.contact-link-icon i{font-size:17px;color:var(--navy-600)}
+.contact-link:hover .contact-link-icon i{color:var(--amber-600)}
+.contact-form{background:var(--white);border:1.5px solid var(--sand-200);border-radius:var(--radius-xl);padding:32px;box-shadow:var(--shadow-md)}
+.form-title{color:var(--navy-900);font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-bottom:22px}
+.form-group{margin-bottom:13px}
+.form-group input,.form-group select{width:100%;padding:11px 15px;border-radius:var(--radius-sm);border:1.5px solid var(--border);background:var(--sand-50);color:var(--text-primary);font-size:13.5px;font-family:'Outfit',sans-serif;outline:none;transition:all .2s}
+.form-group input::placeholder{color:var(--text-muted)}
+.form-group input:focus,.form-group select:focus{border-color:var(--navy-500);background:var(--white);box-shadow:0 0 0 3px rgba(30,47,90,.08)}
+.form-group select{color:var(--text-secondary)}
+.form-group select option{background:var(--white);color:var(--text-primary)}
+.btn-submit{width:100%;background:linear-gradient(135deg,var(--navy-700),var(--navy-900));color:var(--white);border:none;padding:13px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;font-family:'Outfit',sans-serif;cursor:pointer;transition:all .25s;margin-top:6px;letter-spacing:.3px}
+.btn-submit:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(13,20,38,.25)}
+
+/* ─── FOOTER ─── */
+.footer{background:var(--navy-950);padding:22px 28px;text-align:center;border-top:1px solid rgba(255,255,255,0.06)}
+.footer p{font-family:'Outfit',sans-serif;color:rgba(255,255,255,0.3);font-size:12px;letter-spacing:.3px}
+
+/* ─── CART DRAWER ─── */
+.drawer-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(10,15,30,0.6);backdrop-filter:blur(2px)}
+.drawer{position:absolute;right:0;top:0;bottom:0;width:min(400px,100%);background:var(--white);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(0,0,0,.15)}
+.drawer-header{padding:20px 22px;border-bottom:1.5px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;background:var(--navy-900)}
+.drawer-header span{font-family:'Playfair Display',serif;font-weight:700;font-size:18px;color:var(--white)}
+.close-btn{background:rgba(255,255,255,0.08);border:none;font-size:18px;color:rgba(255,255,255,0.6);cursor:pointer;padding:6px 8px;line-height:1;border-radius:8px;transition:all .2s}
+.close-btn:hover{background:rgba(255,255,255,0.15);color:var(--white)}
+.drawer-body{flex:1;overflow-y:auto;padding:18px 22px}
+.drawer-footer{padding:18px 22px;border-top:1.5px solid var(--border-light);background:var(--sand-50)}
+.cart-item{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--border-light)}
+.cart-item-icon{width:52px;height:52px;background:var(--sand-100);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--sand-200)}
+.cart-item-icon i{color:var(--navy-700);font-size:24px}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-name{font-family:'Outfit',sans-serif;font-weight:600;font-size:13px;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--navy-900)}
+.cart-item-price{font-family:'Outfit',sans-serif;font-size:12px;color:var(--text-muted)}
+.qty-controls{display:flex;align-items:center;gap:10px;margin-top:9px}
+.qty-btn{width:28px;height:28px;border-radius:7px;border:1.5px solid var(--border);background:var(--white);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;line-height:1;transition:all .2s;font-family:'Outfit',sans-serif;color:var(--navy-800)}
+.qty-btn:hover{background:var(--navy-50);border-color:var(--navy-300)}
+.qty-num{font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;min-width:20px;text-align:center;color:var(--navy-900)}
+.remove-btn{margin-left:auto;background:none;border:none;cursor:pointer;color:var(--text-muted);font-size:16px;transition:color .2s}
+.remove-btn:hover{color:#ef4444}
+.cart-item-total{font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;flex-shrink:0;color:var(--navy-800)}
+.total-row{display:flex;justify-content:space-between;font-family:'Outfit',sans-serif;font-size:14px;margin-bottom:9px;color:var(--text-secondary)}
+.total-row.grand{font-weight:700;font-size:17px;font-family:'Playfair Display',serif;color:var(--navy-900)}
+.free-delivery-note{background:var(--teal-100);border:1px solid #99f6e4;border-radius:var(--radius-sm);padding:9px 14px;font-family:'Outfit',sans-serif;font-size:12px;color:var(--teal-600);text-align:center;margin:12px 0;font-weight:500}
+.empty-cart{text-align:center;padding:52px 20px;color:var(--text-muted);font-family:'Outfit',sans-serif}
+.empty-cart i{font-size:52px;display:block;margin-bottom:14px;color:var(--navy-100)}
+
+/* ─── TOAST ─── */
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--navy-800);color:var(--white);padding:11px 22px;border-radius:var(--radius-sm);font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;z-index:1000;transition:transform .3s;pointer-events:none;white-space:nowrap;border-left:3px solid var(--amber-400);box-shadow:var(--shadow-md)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ─── WHATSAPP ─── */
+.wa-btn{position:fixed;bottom:28px;right:28px;width:54px;height:54px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);z-index:100;text-decoration:none;transition:all .25s}
+.wa-btn:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.55)}
+.wa-btn i{color:var(--white);font-size:26px}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:920px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-cards{display:none}
+  .contact-inner{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .header-top{padding:12px 16px}
+  .btn-advice{display:none}
+  .hero{padding:44px 16px}
+  .hero h1{font-size:30px}
+  .products-section,.features-section,.contact-section{padding:44px 16px}
+  .section-title{font-size:24px}
+  .stat-item{padding:12px 8px}
+  .stat-item .num{font-size:18px}
+}
+</style>
 </head>
-
 <body>
 
-    <h1>Aqua-Tide Agriculture Products</h1>
+<!-- HEADER -->
+<header class="header">
+  <div class="header-top">
+    <div class="logo flex items-center gap-3">
+    <div class="w-[60px] h-[60px] overflow-hidden flex-shrink-0">
+        <img
+            src="../assets/AT.jpg"
+            alt="Aqua Tide Logo"
+            class="w-8 h-8 object-contain block"
+            height="50"
+            width="120">
+	</div>
 
-    <div class="product-grid">
-
-        <div class="product-card">
-            <img src="../assets/agri1.jpg">
-            <h3>Agriculture Pump</h3>
-            <p>High efficiency irrigation pump</p>
-            <a href="#" class="btn">View Details</a>
-        </div>
-
-        <div class="product-card">
-            <img src="../assets/agri2.jpg">
-            <h3>Submersible Pump</h3>
-            <p>Deep water farming pump</p>
-            <a href="#" class="btn">View Details</a>
-        </div>
-
+    <div>
+        <h1 class="text-2xl font-bold" style="color: var(--white);">Aqua Tide Agriculture</h1>
+        <p class="text-2xl font-bold" style="color: var(--white);">Pump Solutions</p>
     </div>
+</div>
+    <!-- <div class="header-search" id="search-wrap">
+      <input type="text" placeholder="Search pumps, categories…" id="search-input" oninput="filterProducts()"/>
+    </div>
+    <div class="header-actions">
+      <button class="icon-btn" onclick="toggleSearch()" title="Search" aria-label="Toggle search"><i class="ti ti-search"></i></button>
+      <button class="icon-btn" onclick="showCart()" title="Cart" aria-label="View cart">
+        <i class="ti ti-shopping-cart"></i>
+        <span class="cart-badge" id="cart-count">0</span>
+      </button> -->
+      <button class="btn-advice" onclick="window.open('tel:+919246607214')">Get advice</button>
+    </div>
+  </div>
+  <nav class="header-nav">
+    <div class="header-nav-inner">
+      <span class="nav-link" onclick="scrollToId('hero')">Home</span>
+      <span class="nav-link" onclick="scrollToId('products-sec')">Products</span>
+      <span class="nav-link" onclick="scrollToId('features-sec')">Why Aqua Tide</span>
+      <span class="nav-link" onclick="scrollToId('contact-sec')">Contact</span>
+    </div>
+  </nav>
+</header>
 
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><i class="ti ti-award"></i><span>India's trusted pump brand</span></div>
+      <h1>High Performance<br><em>Agriculture Pumps</em></h1>
+      <p>Reliable Aqua Tide water pumps for irrigation, borewell, farming, and agricultural water management. Trusted by 50,000+ farmers across India.</p>
+      <div class="hero-btns">
+        <button class="btn-primary-hero" onclick="scrollToId('products-sec')">Explore products</button>
+        <button class="btn-ghost-hero" onclick="window.open('tel:+919246607214')">Call us now</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><div class="num">50K+</div><div class="label">Farmers served</div></div>
+        <div class="stat-item"><div class="num">2 yr</div><div class="label">Warranty</div></div>
+        <div class="stat-item"><div class="num">500+</div><div class="label">Service centres</div></div>
+        <div class="stat-item"><div class="num">4.8★</div><div class="label">Avg rating</div></div>
+      </div>
+    </div>
+    <div class="hero-cards">
+      <div class="hero-card">
+        <div class="hero-card-icon"><i class="ti ti-bolt"></i></div>
+        <div>
+          <div class="hero-card-title">Energy efficient motors</div>
+          <div class="hero-card-sub">Up to 40% power saving vs standard pumps</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon"><i class="ti ti-shield-check"></i></div>
+        <div>
+          <div class="hero-card-title">ISI certified &amp; BIS approved</div>
+          <div class="hero-card-sub">All pumps meet Indian quality standards</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon"><i class="ti ti-truck-delivery"></i></div>
+        <div>
+          <div class="hero-card-title">Free installation support</div>
+          <div class="hero-card-sub">Pan India delivery in 3–5 working days</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products-sec" class="products-section">
+  <div class="section-header">
+    <div>
+      <h2 class="section-title">Featured products</h2>
+      <p class="section-sub">High-performance agriculture pumps for every need</p>
+    </div>
+    <div class="sort-wrap">
+      <label for="sort-sel">Sort:</label>
+      <select id="sort-sel" onchange="sortProducts()">
+        <option value="default">Featured</option>
+        <option value="price-asc">Price: Low to high</option>
+        <option value="price-desc">Price: High to low</option>
+        <option value="rating">Top rated</option>
+      </select>
+    </div>
+  </div>
+  <div class="filter-chips">
+    <button class="chip active" onclick="filterCategory(this,'all')">All pumps</button>
+    <button class="chip" onclick="filterCategory(this,'borewell')">Borewell</button>
+    <button class="chip" onclick="filterCategory(this,'submersible')">Submersible</button>
+    <button class="chip" onclick="filterCategory(this,'openwell')">Openwell</button>
+    <button class="chip" onclick="filterCategory(this,'monoblock')">Monoblock</button>
+    <button class="chip" onclick="filterCategory(this,'solar')">Solar</button>
+  </div>
+
+  <!-- Product cards are static HTML below. Each card carries data-* attributes
+       (data-category, data-price, data-rating) so the filter/sort/search script
+       can read product details directly from the markup instead of a JS array. -->
+  <div class="product-grid" id="product-grid">
+
+    <article class="product-card" data-category="borewell" data-price="18999" data-rating="5" data-name="  Borewell pump">
+      <div class="card-img-wrap">
+        <img src="../assets/pump1.jpg" alt=" Aqua Tide Borewell pump" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy"/>
+        <div class="icon-circle" style="display:none"><i class="ti ti-droplet-filled"></i></div>
+      </div>
+      <div class="card-body">
+        <div class="card-category">borewell</div>
+        <div class="card-name">Aqua Tide Borewell pump</div>
+        <div class="card-desc">Deep borewell submersible, 3-phase, 2HP–15HP</div>
+        <div class="card-stars">
+          <span class="stars-text">★★★★★</span>
+          <span class="reviews-count">(0)</span>
+        </div>
+        <div class="card-price">₹18,999</div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="submersible" data-price="22499" data-rating="4" data-name="Aqua Tide Submersible pump">
+      <div class="card-img-wrap">
+        <img src="../assets/pump2.jpg" alt=" Aqua Tide Submersible pump" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy"/>
+        <div class="icon-circle" style="display:none"><i class="ti ti-droplet-filled"></i></div>
+      </div>
+      <div class="card-body">
+        <div class="card-category">submersible</div>
+        <div class="card-name">Aqua Tide Submersible pump</div>
+        <div class="card-desc">High-head submersible, ideal for deep wells</div>
+        <div class="card-stars">
+          <span class="stars-text">★★★★☆</span>
+          <span class="reviews-count">(0)</span>
+        </div>
+        <div class="card-price">₹22,499</div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="openwell" data-price="20999" data-rating="5" data-name="Aqua Tide Openwell pump">
+      <div class="card-img-wrap">
+        <img src="../assets/pump3.jpg" alt="Aqua Tide Openwell pump" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy"/>
+        <div class="icon-circle" style="display:none"><i class="ti ti-droplet-filled"></i></div>
+      </div>
+      <div class="card-body">
+        <div class="card-category">openwell</div>
+        <div class="card-name">Aqua Tide Openwell pump</div>
+        <div class="card-desc">Self-priming centrifugal for open wells</div>
+        <div class="card-stars">
+          <span class="stars-text">★★★★★</span>
+          <span class="reviews-count">(0)</span>
+        </div>
+        <div class="card-price">₹20,999</div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="monoblock" data-price="16499" data-rating="4" data-name="Aqua Tide Monoblock pump">
+      <div class="card-img-wrap">
+        <img src="../assets/pump4.jpg" alt="Aqua Tide Monoblock pump" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy"/>
+        <div class="icon-circle" style="display:none"><i class="ti ti-droplet-filled"></i></div>
+      </div>
+      <div class="card-body">
+        <div class="card-category">monoblock</div>
+        <div class="card-name">Aqua Tide Monoblock pump</div>
+        <div class="card-desc">Compact monoblock for surface irrigation</div>
+        <div class="card-stars">
+          <span class="stars-text">★★★★☆</span>
+          <span class="reviews-count">(0)</span>
+        </div>
+        <div class="card-price">₹16,499</div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="solar" data-price="34999" data-rating="5" data-name="Aqua Tide  Solar submersible">
+      <div class="card-img-wrap">
+        <img src="../assets/pump1.jpg" alt="Aqua Tide Solar submersible" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy"/>
+        <div class="icon-circle" style="display:none"><i class="ti ti-droplet-filled"></i></div>
+      </div>
+      <div class="card-body">
+        <div class="card-category">solar</div>
+        <div class="card-name">Aqua Tide  Solar submersible</div>
+        <div class="card-desc">PM-KUSUM eligible solar pump, 3HP</div>
+        <div class="card-stars">
+          <span class="stars-text">★★★★★</span>
+          <span class="reviews-count">(0)</span>
+        </div>
+        <div class="card-price">₹34,999</div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="borewell" data-price="12499" data-rating="4" data-name="Aqua Tide Mini borewell">
+      <div class="card-img-wrap">
+        <img src="../assets/pump2.jpg" alt="Aqua Tide Mini borewell" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy"/>
+        <div class="icon-circle" style="display:none"><i class="ti ti-droplet-filled"></i></div>
+      </div>
+      <div class="card-body">
+        <div class="card-category">borewell</div>
+        <div class="card-name">Aqua Tide Mini borewell</div>
+        <div class="card-desc">Single-phase borewell for small farms</div>
+        <div class="card-stars">
+          <span class="stars-text">★★★★☆</span>
+          <span class="reviews-count">(0)</span>
+        </div>
+        <div class="card-price">₹12,499</div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="openwell" data-price="24999" data-rating="5" data-name="Aqua Tide Heavy-duty openwell">
+      <div class="card-img-wrap">
+        <img src="../assets/pump3.jpg" alt="Aqua Tide Heavy-duty openwell" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy"/>
+        <div class="icon-circle" style="display:none"><i class="ti ti-droplet-filled"></i></div>
+      </div>
+      <div class="card-body">
+        <div class="card-category">openwell</div>
+        <div class="card-name">Aqua Tide Heavy-duty openwell</div>
+        <div class="card-desc">Large-capacity openwell for 10+ acre farms</div>
+        <div class="card-stars">
+          <span class="stars-text">★★★★★</span>
+          <span class="reviews-count">(0)</span>
+        </div>
+        <div class="card-price">₹24,999</div>
+      </div>
+    </article>
+
+    <article class="product-card" data-category="solar" data-price="28999" data-rating="4" data-name="Aqua Tide Solar monoblock">
+      <div class="card-img-wrap">
+        <img src="../assets/pump4.jpg" alt="Aqua Tide Solar monoblock" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy"/>
+        <div class="icon-circle" style="display:none"><i class="ti ti-droplet-filled"></i></div>
+      </div>
+      <div class="card-body">
+        <div class="card-category">solar</div>
+        <div class="card-name">Aqua Tide Solar monoblock</div>
+        <div class="card-desc">Off-grid solar monoblock, 2HP</div>
+        <div class="card-stars">
+          <span class="stars-text">★★★★☆</span>
+          <span class="reviews-count">(0)</span>
+        </div>
+        <div class="card-price">₹28,999</div>
+      </div>
+    </article>
+
+  </div>
+  <div class="no-results" id="no-results">
+    <i class="ti ti-search-off"></i>
+    No products match your search.
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features-sec" class="features-section">
+  <div class="features-inner">
+    <div class="features-header">
+      <h2>Why choose Ekki Deccan?</h2>
+      <p>Engineered for Indian agriculture with decades of field-proven performance</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><i class="ti ti-bolt"></i></div>
+        <h3>Energy saving</h3>
+        <p>IE3 premium motors with up to 40% lower energy cost vs standard pumps</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><i class="ti ti-tool"></i></div>
+        <h3>Easy maintenance</h3>
+        <p>Modular design for quick field service, even in remote rural areas</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><i class="ti ti-droplet"></i></div>
+        <h3>High flow rate</h3>
+        <p>Handles heavy-duty irrigation demands for large farm operations</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><i class="ti ti-shield-check"></i></div>
+        <h3>2-year warranty</h3>
+        <p>Full coverage with 500+ authorised service centres across India</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><i class="ti ti-sun"></i></div>
+        <h3>Solar compatible</h3>
+        <p>Solar-powered models eligible under the PM-KUSUM scheme</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><i class="ti ti-certificate"></i></div>
+        <h3>ISI certified</h3>
+        <p>All pumps BIS approved and meet Indian Standards specifications</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact-sec" class="contact-section">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <h2>Need assistance?</h2>
+      <p>Contact us for pricing, dealer support, installation help, and subsidy scheme information. Our experts are ready to guide you to the right pump for your land.</p>
+      <div class="contact-links">   
+        <a href="tel:+919246607214" class="contact-link">
+          <div class="contact-link-icon"><i class="ti ti-phone"></i></div>+91 92466 07214
+        </a>
+        <a href="mailto:support@aquatideagriculture.in" class="contact-link">
+          <div class="contact-link-icon"><i class="ti ti-mail"></i></div>support@aquatideagriculture.in
+        </a>
+        <a href="https://wa.me/919246607214" class="contact-link" target="_blank">
+          <div class="contact-link-icon"><i class="ti ti-brand-whatsapp"></i></div>WhatsApp support
+        </a>
+        <div class="contact-link" style="cursor:default">
+          <div class="contact-link-icon"><i class="ti ti-map-pin"></i></div>Pan India service network
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-title">Quick enquiry</div>
+      <div class="form-group"><input type="text" placeholder="Your name"/></div>
+      <div class="form-group"><input type="tel" placeholder="Phone number"/></div>
+      <div class="form-group">
+        <select>
+          <option value="">Pump type needed</option>
+          <option>Borewell pump</option>
+          <option>Submersible pump</option>
+          <option>Openwell pump</option>
+          <option>Monoblock pump</option>
+          <option>Solar pump</option>
+        </select>
+      </div>
+      <div class="form-group"><input type="text" placeholder="District / State"/></div>
+      <button class="btn-submit" onclick="alert('Thank you! Our team will call you within 24 hours.')">Submit enquiry →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2024 Aqua Tide Agriculture. All rights reserved. &nbsp;|&nbsp; ISI Certified &nbsp;·&nbsp; BIS Approved &nbsp;·&nbsp; PM-KUSUM Eligible</p>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/919246607214" class="wa-btn" target="_blank" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+  <i class="ti ti-brand-whatsapp"></i>
+</a>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- CART DRAWER (kept for layout parity; cart logic no longer wired to product cards) -->
+<div class="drawer-overlay" id="cart-drawer" onclick="closeCart()">
+  <div class="drawer" onclick="event.stopPropagation()">
+    <div class="drawer-header">
+      <span>Your cart</span>
+      <button class="close-btn" onclick="closeCart()" aria-label="Close cart"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="drawer-body" id="cart-items"></div>
+    <div class="drawer-footer" id="cart-footer"></div>
+  </div>
+</div>
+
+<script>
+/*
+  Products now live as static HTML cards inside #product-grid (see markup above).
+  Each .product-card carries data-category / data-price / data-rating / data-name
+  attributes. The functions below read those attributes straight from the DOM
+  to power filtering, sorting and search — no JS product array involved.
+*/
+
+let currentFilter = "all";
+let currentSort = "default";
+let searchQ = "";
+
+function getCardData(card){
+  return {
+    el: card,
+    category: card.dataset.category,
+    price: parseFloat(card.dataset.price),
+    rating: parseFloat(card.dataset.rating),
+    name: card.dataset.name || ""
+  };
+}
+
+function applyProductView(){
+  const grid = document.getElementById("product-grid");
+  const noResults = document.getElementById("no-results");
+  const cards = Array.from(grid.querySelectorAll(".product-card"));
+  const data = cards.map(getCardData);
+
+  // Determine visibility per card (filter + search)
+  let anyVisible = false;
+  data.forEach(d => {
+    const matchesCategory = currentFilter === "all" || d.category === currentFilter;
+    const haystack = (d.name + " " + d.category).toLowerCase();
+    const matchesSearch = !searchQ || haystack.includes(searchQ);
+    const visible = matchesCategory && matchesSearch;
+    d.el.classList.toggle("hidden-card", !visible);
+    if(visible) anyVisible = true;
+  });
+
+  noResults.style.display = anyVisible ? "none" : "block";
+
+  // Sort: reorder the visible+hidden cards together within the grid
+  let sorted = [...data];
+  if(currentSort === "price-asc"){
+    sorted.sort((a,b)=>a.price-b.price);
+  } else if(currentSort === "price-desc"){
+    sorted.sort((a,b)=>b.price-a.price);
+  } else if(currentSort === "rating"){
+    sorted.sort((a,b)=>b.rating-a.rating);
+  }
+  // "default" (Featured) keeps original DOM order — no reordering needed
+  if(currentSort !== "default"){
+    sorted.forEach(d => grid.appendChild(d.el));
+  }
+}
+
+function filterCategory(el, cat){
+  document.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));
+  el.classList.add("active");
+  currentFilter = cat;
+  applyProductView();
+}
+
+function sortProducts(){
+  currentSort = document.getElementById("sort-sel").value;
+  applyProductView();
+}
+
+function filterProducts(){
+  searchQ = document.getElementById("search-input").value.toLowerCase();
+  applyProductView();
+}
+
+function showToast(msg){
+  const t=document.getElementById("toast");
+  t.textContent=msg;
+  t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"),2500);
+}
+
+function showCart(){
+  document.getElementById("cart-drawer").style.display="block";
+  renderCart();
+}
+function closeCart(){document.getElementById("cart-drawer").style.display="none"}
+function renderCart(){
+  const ci=document.getElementById("cart-items");
+  const cf=document.getElementById("cart-footer");
+  ci.innerHTML=`<div class="empty-cart"><i class="ti ti-shopping-cart"></i>Your cart is empty<br><span style="font-size:13px;display:block;margin-top:6px">Browse our products and add items</span></div>`;
+  cf.innerHTML="";
+}
+
+function toggleSearch(){
+  const w=document.getElementById("search-wrap");
+  const vis=w.style.display==="flex";
+  w.style.display=vis?"none":"flex";
+  if(!vis) w.querySelector("input").focus();
+}
+function scrollToId(id){
+  const el=document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:"smooth"});
+}
+
+// Initial pass in case filter/sort defaults ever change
+applyProductView();
+</script>
 </body>
 </html>
